@@ -9,7 +9,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.39 2004/06/21 01:59:41 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.40 2004/06/21 03:09:45 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -241,6 +241,8 @@ public abstract class AbstractJdbc2ResultSet extends org.postgresql.jdbc1.Abstra
 			current_row = rows_size;
 
 		onInsertRow = false;
+		this_row = null;
+		rowBuffer = null;
 	}
 
 
@@ -252,6 +254,8 @@ public abstract class AbstractJdbc2ResultSet extends org.postgresql.jdbc1.Abstra
 			current_row = -1;
 
 		onInsertRow = false;
+		this_row = null;
+		rowBuffer = null;
 	}
 
 
@@ -592,6 +596,8 @@ public abstract class AbstractJdbc2ResultSet extends org.postgresql.jdbc1.Abstra
 
 		if (current_row-1 < 0) {
 			current_row = -1;
+			this_row = null;
+			rowBuffer = null;
 			return false;
 		} else {
 			current_row--;
@@ -1181,6 +1187,10 @@ public abstract class AbstractJdbc2ResultSet extends org.postgresql.jdbc1.Abstra
 		{
 			throw new PSQLException( "postgresql.updateable.notupdateable" );
 		}
+		if (isBeforeFirst() || isAfterLast())
+		{
+			throw new PSQLException("postgresql.updateable.badupdateposition");
+		}
 
 		if (doingUpdates)
 		{
@@ -1687,6 +1697,10 @@ public abstract class AbstractJdbc2ResultSet extends org.postgresql.jdbc1.Abstra
 		if ( !isUpdateable() )
 		{
 			throw new PSQLException( "postgresql.updateable.notupdateable" );
+		}
+		if (!onInsertRow && (isBeforeFirst() || isAfterLast()))
+		{
+			throw new PSQLException("postgresql.updateable.badupdateposition");
 		}
 		doingUpdates = !onInsertRow;
 		if (value == null)
