@@ -7,7 +7,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/util/PSQLException.java.in,v 1.5 2004/10/10 15:39:46 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/PSQLException.java.in,v 1.6 2004/10/10 16:25:13 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -24,8 +24,7 @@ public class PSQLException extends SQLException
 
 	public PSQLException(String msg, PSQLState state, Throwable cause)
 	{
-@NOINITCAUSE@	msg = addCauseToMessage(msg, cause);
-		super(msg, state == null ? null : state.getState());                
+		super(addCauseToMessage(msg, cause), state == null ? null : state.getState());                
 		initCause(cause); // Calls either the 1.4 Throwable impl or our impl below.
 		if (Driver.logDebug)
 			Driver.debug("Exception: " + this);
@@ -43,7 +42,9 @@ public class PSQLException extends SQLException
 	}
 	
 	private static String addCauseToMessage(String msg, Throwable cause) {
-		if (cause != null) {
+		boolean hasInitCause = true;
+@NOINITCAUSE@	hasInitCause = false;
+		if (!hasInitCause && cause != null) {
 			try {
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				PrintWriter pw = new PrintWriter(baos);
