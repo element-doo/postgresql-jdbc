@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * PS: Do you know how difficult it is to type on a train? ;-)
  *
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.28 2004/09/20 08:36:51 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.29 2004/09/30 07:58:08 jurka Exp $
  */
 
 public class DatabaseMetaDataTest extends TestCase
@@ -28,6 +28,10 @@ public class DatabaseMetaDataTest extends TestCase
 	{
 		con = TestUtil.openDB();
 		TestUtil.createTable( con, "testmetadata", "id int4, name text, updated timestamp" );
+		TestUtil.dropSequence( con, "sercoltest_b_seq");
+		TestUtil.dropSequence( con, "sercoltest_c_seq");
+		TestUtil.createTable( con, "sercoltest", "a int, b serial, c bigserial");
+
 		Statement stmt = con.createStatement();
 		//we add the following comments to ensure the joins to the comments
 		//are done correctly. This ensures we correctly test that case.
@@ -37,6 +41,9 @@ public class DatabaseMetaDataTest extends TestCase
 	protected void tearDown() throws Exception
 	{
 		TestUtil.dropTable( con, "testmetadata" );
+		TestUtil.dropTable( con, "sercoltest");
+		TestUtil.dropSequence( con, "sercoltest_b_seq");
+		TestUtil.dropSequence( con, "sercoltest_c_seq");
 
 		TestUtil.closeDB( con );
 	}
@@ -270,6 +277,27 @@ public class DatabaseMetaDataTest extends TestCase
 		DatabaseMetaData dbmd = con.getMetaData();
 		assertNotNull(dbmd);
 		ResultSet rs = dbmd.getColumns(null,null,"pg_class",null);
+		rs.close();
+	}
+
+	public void testSerialColumns() throws SQLException
+	{
+		DatabaseMetaData dbmd = con.getMetaData();
+		ResultSet rs = dbmd.getColumns(null,null,"sercoltest",null);
+		int rownum = 0;
+		while (rs.next()) {
+			assertEquals("sercoltest", rs.getString("TABLE_NAME"));
+			assertEquals(rownum+1, rs.getInt("ORDINAL_POSITION"));
+			if (rownum == 0) {
+				assertEquals("int4", rs.getString("TYPE_NAME"));
+			} else if (rownum == 1) {
+				assertEquals("serial", rs.getString("TYPE_NAME"));
+			} else if (rownum == 2) {
+				assertEquals("bigserial", rs.getString("TYPE_NAME"));
+			}
+			rownum++;
+		}
+		assertEquals(3, rownum);
 		rs.close();
 	}
 

@@ -12,7 +12,7 @@ import java.sql.*;
  * User: alexei
  * Date: 17-Dec-2003
  * Time: 11:01:44
- * @version $Id: OID74Test.java,v 1.5 2004/09/20 08:36:51 jurka Exp $
+ * @version $Id: OID74Test.java,v 1.6 2004/09/30 07:58:09 jurka Exp $
  */
 public class OID74Test  extends TestCase
 {
@@ -28,14 +28,14 @@ public class OID74Test  extends TestCase
 		Properties props = new Properties();
 		props.setProperty("compatible","7.1");
 		conn = TestUtil.openDB(props);
-		conn.setAutoCommit(false);
 
 		TestUtil.createTable(conn,"temp","col oid");
+		conn.setAutoCommit(false);
 	}
 
 	public void tearDown() throws Exception
 	{
-		conn.setAutoCommit(false);
+		conn.setAutoCommit(true);
 		TestUtil.dropTable(conn,"temp");
 		TestUtil.closeDB(conn);
 	}
