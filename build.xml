@@ -6,7 +6,7 @@
 
   This file now requires Ant 1.4.1.  2002-04-18
 
-  $PostgreSQL: pgjdbc/build.xml,v 1.40 2004/01/19 03:40:30 davec Exp $
+  $PostgreSQL: pgjdbc/build.xml,v 1.41 2004/01/23 23:52:02 davec Exp $
 
 -->
 
@@ -334,5 +334,14 @@
   
   <!-- Build and run the tests. -->
   <target name="test" depends="testjar,runtest"/>
+
+  <!-- Build the documentation -->
+  <target name="doc" depends="prepare">
+   <mkdir dir="${builddir}/doc"/>
+   <xslt basedir="doc" destdir="${builddir}/doc" includes="*.xml" force="yes" style="${docbook.stylesheet}">
+     <param name="base.dir" expression="./"/>
+   </xslt>
+   <delete file="${builddir}/doc/pgjdbc.html"/>
+  </target>
 
 </project>
