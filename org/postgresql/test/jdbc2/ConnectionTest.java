@@ -10,7 +10,7 @@ import java.sql.*;
  *
  * PS: Do you know how difficult it is to type on a train? ;-)
  *
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ConnectionTest.java,v 1.11 2003/11/29 22:41:23 pgsql Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ConnectionTest.java,v 1.12 2004/02/16 11:35:23 jurka Exp $
  */
 
 public class ConnectionTest extends TestCase
@@ -205,7 +205,7 @@ public class ConnectionTest extends TestCase
 			con.clearWarnings();
 
 			// Set the test warning
-			((org.postgresql.jdbc2.AbstractJdbc2Connection)con).addWarning(testStr);
+			((org.postgresql.jdbc2.AbstractJdbc2Connection)con).addWarning(new SQLWarning(testStr));
 
 			// Retrieve it
 			SQLWarning warning = con.getWarnings();

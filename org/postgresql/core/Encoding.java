@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/Encoding.java,v 1.13 2003/11/29 19:52:09 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/Encoding.java,v 1.14 2004/02/16 11:35:20 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -284,7 +284,7 @@ public class Encoding
 			String s = new String(l_cdata, 0, j);
 			return s;
 		} catch (Exception l_e) {
-			throw new PSQLException("postgresql.con.invalidchar", l_e);
+			throw new PSQLException("postgresql.con.invalidchar", PSQLState.DATA_ERROR, l_e);
 		}
 	}
 

@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/util/MessageTranslator.java,v 1.6 2003/11/29 19:52:11 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/MessageTranslator.java,v 1.7 2004/02/16 11:35:23 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -46,6 +46,12 @@ public class MessageTranslator
 			instance = new MessageTranslator();
 		}
 		return instance;
+	}
+
+	public final static String translate(String id)
+	{
+		MessageTranslator translator = MessageTranslator.getInstance();
+		return translator._translate(id, new Object[0]);
 	}
 
 	public final static String translate(String id, Object[] args)
