@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/TimeTest.java,v 1.8 2004/02/17 12:43:44 davec Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/TimeTest.java,v 1.9 2004/02/26 23:19:58 davec Exp $
  *
  * Some simple tests based on problems reported by users. Hopefully these will
  * help prevent previous problems from re-occuring ;-)
@@ -78,15 +78,19 @@ public class TimeTest extends TestCase
 
            time = rs.getTime(1);
            assertNotNull(time);
-           assertTrue((time.getTime() % 1000) == 100);
+           assertEquals(100, time.getTime() % 1000);
            timestamp = rs.getTimestamp(1);
            assertNotNull(timestamp);
+           assertEquals(100, timestamp.getTime() % 1000);
+           assertEquals(100000000, timestamp.getNanos());
 
            timetz = rs.getTime(2);
            assertNotNull(timetz);
-           assertTrue((timetz.getTime() % 1000) == 10);
+           assertEquals(10, timetz.getTime() % 1000);
            timestamptz = rs.getTimestamp(2);
            assertNotNull(timestamptz);
+           assertEquals(10, timestamptz.getTime() % 1000);
+           assertEquals(10000000, timestamptz.getNanos());
 
            assertTrue(rs.next());
 
