@@ -7,7 +7,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.2 2004/07/09 23:58:20 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -1175,7 +1175,7 @@ public class QueryExecutorImpl implements QueryExecutor {
 
 	private void receiveRFQ() throws IOException {
 		if (pgStream.ReceiveIntegerR(4) != 5)
-			throw new IOException("unexpected length of ReadyForQuery packet");
+			throw new IOException("unexpected length of ReadyForQuery message");
 		
 		char tStatus = (char)pgStream.ReceiveChar();
 		if (Driver.logDebug)
@@ -1193,8 +1193,7 @@ public class QueryExecutorImpl implements QueryExecutor {
 			protoConnection.setTransactionState(ProtocolConnection.TRANSACTION_FAILED);
 			break;
 		default:
-			// Huh?
-			break;
+			throw new IOException("unexpected transaction state in ReadyForQuery message: " + (int)tStatus);
 		}
 	}
 
