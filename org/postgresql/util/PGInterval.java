@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/util/PGInterval.java,v 1.5 2005/01/11 08:25:49 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/util/PGInterval.java,v 1.6 2005/01/24 20:33:01 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -19,6 +19,7 @@ public class PGInterval extends PGobject implements Serializable, Cloneable
     }
     public PGInterval(String value )
     {
+        setType("interval");
         this.value = value;
     }
 
