@@ -6,7 +6,7 @@ import java.sql.*;
 import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Connection.java,v 1.7 2004/07/09 23:50:28 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Connection.java,v 1.8 2004/09/16 22:09:06 jurka Exp $
  * This class defines methods of the jdbc3 specification.  This class extends
  * org.postgresql.jdbc2.AbstractJdbc2Connection which provides the jdbc2
  * methods.  The real Connection class (for jdbc3) is org.postgresql.jdbc3.Jdbc3Connection
@@ -14,6 +14,7 @@ import org.postgresql.util.PSQLState;
 public abstract class AbstractJdbc3Connection extends org.postgresql.jdbc2.AbstractJdbc2Connection
 {
 	private int rsHoldability = ResultSet.CLOSE_CURSORS_AT_COMMIT;
+	private int savepointId = 0;
 
 	protected AbstractJdbc3Connection(String host, int port, String user, String database, Properties info, String url) throws SQLException {
 		super(host, port, user, database, info, url);
@@ -74,7 +75,20 @@ public abstract class AbstractJdbc3Connection extends org.postgresql.jdbc2.Abstr
 	 */
 	public Savepoint setSavepoint() throws SQLException
 	{
-		throw org.postgresql.Driver.notImplemented();
+		if (!haveMinimumServerVersion("8.0"))
+			throw new PSQLException("postgresql.savepoint.notsupported");
+		if (getAutoCommit())
+			throw new PSQLException("postgresql.savepoint.autocommit");
+
+		PSQLSavepoint savepoint = new PSQLSavepoint(savepointId++);
+
+		// Note we can't use execSQLUpdate because we don't want
+		// to suppress BEGIN.
+		Statement stmt = createStatement();
+		stmt.executeUpdate("SAVEPOINT " + savepoint.getPGName());
+		stmt.close();
+
+		return savepoint;
 	}
 
 	/**
@@ -91,7 +105,20 @@ public abstract class AbstractJdbc3Connection extends org.postgresql.jdbc2.Abstr
 	 */
 	public Savepoint setSavepoint(String name) throws SQLException
 	{
-		throw org.postgresql.Driver.notImplemented();
+		if (!haveMinimumServerVersion("8.0"))
+			throw new PSQLException("postgresql.savepoint.notsupported");
+		if (getAutoCommit())
+			throw new PSQLException("postgresql.savepoint.autocommit");
+
+		PSQLSavepoint savepoint = new PSQLSavepoint(name);
+
+		// Note we can't use execSQLUpdate because we don't want
+		// to suppress BEGIN.
+		Statement stmt = createStatement();
+		stmt.executeUpdate("SAVEPOINT " + savepoint.getPGName());
+		stmt.close();
+
+		return savepoint;
 	}
 
 	/**
@@ -111,7 +138,11 @@ public abstract class AbstractJdbc3Connection extends org.postgresql.jdbc2.Abstr
 	 */
 	public void rollback(Savepoint savepoint) throws SQLException
 	{
-		throw org.postgresql.Driver.notImplemented();
+		if (!haveMinimumServerVersion("8.0"))
+			throw new PSQLException("postgresql.savepoint.notsupported");
+
+		PSQLSavepoint pgSavepoint = (PSQLSavepoint)savepoint;
+		execSQLUpdate("ROLLBACK TO SAVEPOINT " + pgSavepoint.getPGName());
 	}
 
 
@@ -128,7 +159,12 @@ public abstract class AbstractJdbc3Connection extends org.postgresql.jdbc2.Abstr
 	 */
 	public void releaseSavepoint(Savepoint savepoint) throws SQLException
 	{
-		throw org.postgresql.Driver.notImplemented();
+		if (!haveMinimumServerVersion("8.0"))
+			throw new PSQLException("postgresql.savepoint.notsupported");
+		
+		PSQLSavepoint pgSavepoint = (PSQLSavepoint)savepoint;
+		execSQLUpdate("RELEASE SAVEPOINT " + pgSavepoint.getPGName());
+		pgSavepoint.invalidate();
 	}
 
 
