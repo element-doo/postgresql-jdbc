@@ -7,7 +7,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.3 2004/07/29 19:15:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.4 2004/09/13 12:19:00 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -445,8 +445,19 @@ public class QueryExecutorImpl implements QueryExecutor {
 		if (subqueries == null) {
 			sendOneQuery((SimpleQuery)query, (SimpleParameterList)parameters, maxRows, fetchSize, flags);
 		} else {
-			for (int i = 0; i < subqueries.length; ++i)
-				sendOneQuery(subqueries[i], subparams[i], maxRows, fetchSize, flags);
+			for (int i = 0; i < subqueries.length; ++i) {
+				// In the situation where parameters is already
+				// NO_PARAMETERS it cannot know the correct
+				// number of array elements to return in the
+				// above call to getSubparams(), so it must
+				// return null which we check for here.
+				//
+				SimpleParameterList subparam = SimpleQuery.NO_PARAMETERS;
+				if (subparams != null) {
+					subparam = subparams[i];
+				}
+				sendOneQuery(subqueries[i], subparam, maxRows, fetchSize, flags);
+			}
 		}
 	}
 

@@ -6,7 +6,7 @@ import junit.framework.*;
 import java.sql.*;
 import java.util.HashMap;
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.5 2004/08/11 05:51:22 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.6 2004/09/13 12:19:00 jurka Exp $
  *
  * Test for getObject
  */
@@ -63,6 +63,24 @@ public class StatementTest extends TestCase
      stmt.close();
      stmt.close();
   }
+
+	public void testMultiExecute() throws SQLException
+	{
+		Statement stmt = con.createStatement();
+		stmt.execute("SELECT 1; SELECT 2");
+
+		ResultSet rs = stmt.getResultSet();
+		assertTrue(rs.next());
+		assertEquals(1, rs.getInt(1));
+		rs.close();
+
+		assertTrue(stmt.getMoreResults());
+		rs = stmt.getResultSet();
+		assertTrue(rs.next());
+		assertEquals(2, rs.getInt(1));
+		rs.close();
+		stmt.close();
+	}
 
 	public void testUpdateCount() throws SQLException
 	{
