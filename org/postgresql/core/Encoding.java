@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/Encoding.java,v 1.15 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/Encoding.java,v 1.16 2004/07/17 07:39:41 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -286,11 +286,13 @@ public class Encoding
 					// Length 1: \u00000 .. \u0007f
 				} else if (ch < 0xe0) { 
 					// Length 2: \u00080 .. \u007ff
-					ch = ch | ((data[in++] & 0x7f) << 6);
+					ch = ((ch & 0x1f) << 6);
+					ch = ch | (data[in++] & 0x3f);
 				} else {
 					// Length 3: \u00800 .. \u0ffff
-					ch = ch | ((data[in++] & 0x7f) << 12);
-					ch = ch | ((data[in++] & 0x7f) << 6);
+					ch = ((ch & 0x0f) << 12);
+					ch = ch | ((data[in++] & 0x3f) << 6);
+					ch = ch | (data[in++] & 0x3f);
 				}
 				cdata[out++] = (char)ch;
 			}
