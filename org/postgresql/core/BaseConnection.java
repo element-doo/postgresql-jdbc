@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.6 2004/02/16 11:35:20 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.7 2004/04/10 13:53:10 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -28,6 +28,9 @@ public interface BaseConnection extends PGConnection
 	public Statement createStatement() throws SQLException;
 	public BaseResultSet execSQL(String s) throws SQLException;
 	public boolean getAutoCommit();
+	public boolean getInTransaction();
+	public void setInTransaction(boolean b);
+	public String getPre71IsolationLevelSQL() throws SQLException;
 	public String getCursorName() throws SQLException;
 	public Encoding getEncoding() throws SQLException;
 	public DatabaseMetaData getMetaData() throws SQLException;
