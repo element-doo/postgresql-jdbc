@@ -1,9 +1,9 @@
 /*-------------------------------------------------------------------------
 *
-* Copyright (c) 2003-2004, PostgreSQL Global Development Group
+* Copyright (c) 2003-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/geometric/PGcircle.java,v 1.14 2004/12/22 09:23:56 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/geometric/PGcircle.java,v 1.15 2005/01/11 08:25:45 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
