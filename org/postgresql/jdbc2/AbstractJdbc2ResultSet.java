@@ -8,7 +8,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.47 2004/09/20 08:36:50 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.48 2004/09/30 18:16:52 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -471,7 +471,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 		if (current_row < 0 || current_row >= rows_size)
 			return 0;
 
-		return current_row + 1;
+		return row_offset + current_row + 1;
 	}
 
 
