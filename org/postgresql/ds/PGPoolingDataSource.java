@@ -6,6 +6,7 @@ import java.util.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.postgresql.util.GT;
 import org.postgresql.ds.common.*;
 
 /**
@@ -35,7 +36,7 @@ import org.postgresql.ds.common.*;
  * <p>This implementation supports JDK 1.3 and higher.</p>
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class PGPoolingDataSource extends BaseDataSource implements DataSource
 {
@@ -393,7 +394,7 @@ public class PGPoolingDataSource extends BaseDataSource implements DataSource
 		{
 			if (available == null)
 			{
-				throw new SQLException("DataSource has been closed.");
+				throw new SQLException(GT.tr("DataSource has been closed."));
 			}
 			while (true)
 			{
