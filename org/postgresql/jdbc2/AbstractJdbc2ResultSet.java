@@ -8,7 +8,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.44 2004/07/27 05:19:33 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.45 2004/08/02 18:07:43 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -989,7 +989,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("updating boolean " + fields[columnIndex - 1].getColumnLabel() + "=" + x);
+			Driver.debug("updating boolean " + fields[columnIndex - 1].getColumnName(connection) + "=" + x);
 		updateValue(columnIndex, new Boolean(x));
 	}
 
@@ -1055,7 +1055,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("updating double " + fields[columnIndex - 1].getColumnLabel() + "=" + x);
+			Driver.debug("updating double " + fields[columnIndex - 1].getColumnName(connection) + "=" + x);
 		updateValue(columnIndex, new Double(x));
 	}
 
@@ -1064,7 +1064,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("updating float " + fields[columnIndex - 1].getColumnLabel() + "=" + x);
+			Driver.debug("updating float " + fields[columnIndex - 1].getColumnName(connection) + "=" + x);
 		updateValue(columnIndex, new Float(x));
 	}
 
@@ -1073,7 +1073,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("updating int " + fields[columnIndex - 1].getColumnLabel() + "=" + x);
+			Driver.debug("updating int " + fields[columnIndex - 1].getColumnName(connection) + "=" + x);
 		updateValue(columnIndex, new Integer(x));
 	}
 
@@ -1082,7 +1082,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("updating long " + fields[columnIndex - 1].getColumnLabel() + "=" + x);
+			Driver.debug("updating long " + fields[columnIndex - 1].getColumnName(connection) + "=" + x);
 		updateValue(columnIndex, new Long(x));
 	}
 
@@ -1098,7 +1098,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("updating object " + fields[columnIndex - 1].getColumnLabel() + " = " + x);
+			Driver.debug("updating object " + fields[columnIndex - 1].getColumnName(connection) + " = " + x);
 		updateValue(columnIndex, x);
 	}
 
@@ -1134,7 +1134,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 
 		for (int i = 0; i < numColumns; i++ )
 		{
-			selectSQL.append( fields[i].getColumnLabel() );
+			selectSQL.append( fields[i].getColumnName(connection) );
 
 			if ( i < numColumns - 1 )
 			{
@@ -1295,7 +1295,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("in update Short " + fields[columnIndex - 1].getColumnLabel() + " = " + x);
+			Driver.debug("in update Short " + fields[columnIndex - 1].getColumnName(connection) + " = " + x);
 		updateValue(columnIndex, new Short(x));
 	}
 
@@ -1304,7 +1304,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("in update String " + fields[columnIndex - 1].getColumnLabel() + " = " + x);
+			Driver.debug("in update String " + fields[columnIndex - 1].getColumnName(connection) + " = " + x);
 		updateValue(columnIndex, x);
 	}
 
@@ -1313,7 +1313,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("in update Time " + fields[columnIndex - 1].getColumnLabel() + " = " + x);
+			Driver.debug("in update Time " + fields[columnIndex - 1].getColumnName(connection) + " = " + x);
 		updateValue(columnIndex, x);
 	}
 
@@ -1322,7 +1322,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	throws SQLException
 	{
 		if ( Driver.logDebug )
-			Driver.debug("updating Timestamp " + fields[columnIndex - 1].getColumnLabel() + " = " + x);
+			Driver.debug("updating Timestamp " + fields[columnIndex - 1].getColumnName(connection) + " = " + x);
 		updateValue(columnIndex, x);
 
 	}
@@ -2602,7 +2602,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 		if (value == null)
 			updateNull(columnIndex);
 		else
-			updateValues.put(fields[columnIndex - 1].getColumnLabel(), value);
+			updateValues.put(fields[columnIndex - 1].getColumnName(connection), value);
 	}
 
 	private class PrimaryKey
