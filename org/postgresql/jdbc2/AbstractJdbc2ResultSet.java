@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.72 2005/02/15 08:56:26 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.73 2005/03/23 19:47:44 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -844,7 +844,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
     {
         checkUpdateable();
 
-        if (current_row < 0)
+        if (current_row < 0 || current_row >= rows.size())
         {
             this_row = null;
             rowBuffer = null;
