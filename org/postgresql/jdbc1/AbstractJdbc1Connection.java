@@ -9,7 +9,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java,v 1.35 2004/02/16 11:35:21 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java,v 1.36 2004/02/23 12:57:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -143,13 +143,17 @@ public abstract class AbstractJdbc1Connection implements BaseConnection
 		PG_HOST = host;
 		PG_STATUS = CONNECTION_BAD;
 
-		if (info.getProperty("ssl") != null && Driver.sslEnabled())
+		useSSL = false;
+		if (info.getProperty("ssl") != null)
 		{
-			useSSL = true;
-		}
-		else
-		{
-			useSSL = false;
+			if (Driver.sslEnabled())
+			{
+				useSSL = true;
+			}
+			else
+			{
+				throw new PSQLException("postgresql.con.driversslnotsupported", PSQLState.CONNECTION_FAILURE);
+			}
 		}
 
 		if (info.getProperty("compatible") == null)
