@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/Notification.java,v 1.4 2003/11/29 19:52:09 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/Notification.java,v 1.5 2004/01/28 12:16:09 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -18,8 +18,14 @@ public class Notification implements PGNotification
 {
 	public Notification(String p_name, int p_pid)
 	{
+		this(p_name, p_pid, "");
+	}
+
+	public Notification(String p_name, int p_pid, String p_parameter)
+	{
 		m_name = p_name;
 		m_pid = p_pid;
+		m_parameter = p_parameter;
 	}
 
 	/*
@@ -38,7 +44,13 @@ public class Notification implements PGNotification
 		return m_pid;
 	}
 
+	public String getParameter()
+	{
+		return m_parameter;
+	}
+
 	private String m_name;
+	private String m_parameter;
 	private int m_pid;
 
 }

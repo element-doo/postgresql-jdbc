@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.29 2004/01/13 03:07:09 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.30 2004/01/28 12:16:09 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -129,9 +129,11 @@ public class QueryExecutor
 				switch (c)
 				{
 					case 'A':	// Asynchronous Notify
-						int pid = pgStream.ReceiveInteger(4);
+						int msglen = pgStream.ReceiveIntegerR(4);
+						int pid = pgStream.ReceiveIntegerR(4);
 						String msg = pgStream.ReceiveString(connection.getEncoding());
-						connection.addNotification(new org.postgresql.core.Notification(msg, pid));
+						String param = pgStream.ReceiveString(connection.getEncoding());
+						connection.addNotification(new org.postgresql.core.Notification(msg, pid, param));
 						break;
 					case 'B':	// Binary Data Transfer
 						receiveTupleV3(true);
@@ -237,7 +239,7 @@ public class QueryExecutor
 				switch (c)
 				{
 					case 'A':	// Asynchronous Notify
-						int pid = pgStream.ReceiveInteger(4);
+						int pid = pgStream.ReceiveIntegerR(4);
 						String msg = pgStream.ReceiveString(connection.getEncoding());
 						connection.addNotification(new org.postgresql.core.Notification(msg, pid));
 						break;

@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.4 2003/11/29 19:52:09 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.5 2004/01/28 12:16:09 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -26,6 +26,13 @@ public interface PGNotification
 	 * @since 7.3
 	 */
 	public int getPID();
+
+	/**
+	 * Returns additional information from the notifying process.
+	 * Currently, this feature is unimplemented and always returns
+	 * an empty String.
+	 */
+	public String getParameter();
 
 }
 
