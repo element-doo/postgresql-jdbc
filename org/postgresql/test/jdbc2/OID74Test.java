@@ -12,7 +12,7 @@ import java.sql.*;
  * User: alexei
  * Date: 17-Dec-2003
  * Time: 11:01:44
- * @version $Id: OID74Test.java,v 1.6 2004/09/30 07:58:09 jurka Exp $
+ * @version $Id: OID74Test.java,v 1.7 2004/10/22 21:48:19 jurka Exp $
  */
 public class OID74Test  extends TestCase
 {
@@ -38,6 +38,13 @@ public class OID74Test  extends TestCase
 		conn.setAutoCommit(true);
 		TestUtil.dropTable(conn,"temp");
 		TestUtil.closeDB(conn);
+	}
+
+	public void testSetNull() throws SQLException {
+		PreparedStatement pstmt = conn.prepareStatement("INSERT INTO temp VALUES (?)");
+		pstmt.setNull(1, Types.VARBINARY);
+		pstmt.executeUpdate();
+		pstmt.close();
 	}
 
 	public void testBinaryStream() throws Exception
