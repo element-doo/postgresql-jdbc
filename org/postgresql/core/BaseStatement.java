@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.7 2003/11/29 19:52:09 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.8 2004/01/13 03:07:09 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -18,6 +18,8 @@ import java.util.Vector;
 
 public interface BaseStatement extends org.postgresql.PGStatement
 {
+	public BaseResultSet createDriverResultSet(Field[] fields, Vector tuples) throws SQLException;
+
         public BaseResultSet createResultSet(Field[] fields, Vector tuples, String status, int updateCount, long insertOID, boolean binaryCursor) throws SQLException;
         public PGRefCursorResultSet createRefCursorResultSet(String cursorName) throws SQLException;
 

@@ -26,7 +26,7 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Vector;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.44 2003/12/12 18:36:19 davec Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.45 2004/01/13 03:07:09 jurka Exp $
  * This class defines methods of the jdbc1 specification.  This class is
  * extended by org.postgresql.jdbc2.AbstractJdbc2Statement which adds the jdbc2
  * methods.  The real Statement class (for jdbc1) is org.postgresql.jdbc1.Jdbc1Statement
@@ -107,6 +107,14 @@ public abstract class AbstractJdbc1Statement implements BaseStatement
 	private boolean returnTypeSet;
 	protected Object callResult;
 	protected int maxfieldSize = 0;
+
+	public BaseResultSet createDriverResultSet(Field[] fields, Vector tuples) throws SQLException
+	{
+		for (int i=0; i<fields.length; i++) {
+			fields[i].setFromServer(false);
+		}
+		return createResultSet(fields,tuples,"OK",1,0,false);
+	}
 
 	public abstract BaseResultSet createResultSet(Field[] fields, Vector tuples, String status, int updateCount, long insertOID, boolean binaryCursor) throws SQLException;
 
