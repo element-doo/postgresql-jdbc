@@ -6,7 +6,7 @@
 
   This file now requires Ant 1.4.1.  2002-04-18
 
-  $PostgreSQL: pgjdbc/build.xml,v 1.39 2004/01/13 02:49:34 jurka Exp $
+  $PostgreSQL: pgjdbc/build.xml,v 1.40 2004/01/19 03:40:30 davec Exp $
 
 -->
 
@@ -30,7 +30,6 @@
     It defaults to jdbc1, but builds jdbc2 if the java.lang.Byte class is
     in the CLASSPATH (ie JDK1.2 or later), and then enterprise if the
     javax.sql.DataSource class is present.
-
     Important: This must have the following order: jdbc1, jdbc2, jdbc3
   -->
   <target name="check_versions">
