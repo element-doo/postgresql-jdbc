@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.5 2005/01/11 08:25:43 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.6 2005/02/01 07:27:54 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -34,6 +34,10 @@ class SimpleParameterList implements ParameterList {
 
     public int getParameterCount() {
         return paramValues.length;
+    }
+
+    public int[] getTypeOIDs() {
+        return null;
     }
 
     public void setIntParameter(int index, int value) throws SQLException {
