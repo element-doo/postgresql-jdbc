@@ -8,7 +8,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.50 2004/10/10 17:28:21 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.51 2004/10/13 20:58:01 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -25,6 +25,7 @@ import java.math.BigInteger;
 import java.sql.*;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -77,6 +78,8 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 
 	protected int fetchSize;       // Current fetch size (might be 0).
 	protected ResultCursor cursor; // Cursor for fetching additional data.
+
+	private HashMap columnNameIndexMap = new HashMap(); // Speed up findColumn by caching lookups
 
 	public abstract ResultSetMetaData getMetaData() throws SQLException;
 
@@ -2243,12 +2246,20 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	 */
 	public int findColumn(String columnName) throws SQLException
 	{
-		int i;
+		Integer index = (Integer)columnNameIndexMap.get(columnName);
+		if (index != null) {
+			return index.intValue();
+		}
 
 		final int flen = fields.length;
-		for (i = 0 ; i < flen; ++i)
-			if (fields[i].getColumnLabel().equalsIgnoreCase(columnName))
-				return (i + 1);
+		for (int i = 0 ; i < flen; ++i) {
+			if (fields[i].getColumnLabel().equalsIgnoreCase(columnName)) {
+				index = new Integer(i+1);
+				columnNameIndexMap.put(columnName, index);
+				return index.intValue();
+			}
+		}
+
 		throw new PSQLException (GT.tr("The column name '{0}' was not found in this ResultSet.", columnName));
 	}
 
