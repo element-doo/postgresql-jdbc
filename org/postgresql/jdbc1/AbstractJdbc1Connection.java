@@ -9,7 +9,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java,v 1.40 2004/06/29 06:43:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java,v 1.41 2004/07/09 23:50:07 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -978,7 +978,7 @@ public abstract class AbstractJdbc1Connection implements BaseConnection
 				"bool",
 				"bit",
 				"date",
-				"time",
+				"time", "timetz",
 				"abstime", "timestamp", "timestamptz"
 			};
 
@@ -1003,7 +1003,7 @@ public abstract class AbstractJdbc1Connection implements BaseConnection
 		Types.BIT,
 		Types.BIT,
 		Types.DATE,
-		Types.TIME,
+		Types.TIME, Types.TIME,
 		Types.TIMESTAMP, Types.TIMESTAMP, Types.TIMESTAMP
 	};
 

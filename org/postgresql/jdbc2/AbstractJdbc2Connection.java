@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Properties;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.10 2004/06/29 06:43:27 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.11 2004/07/09 23:50:20 jurka Exp $
  * This class defines methods of the jdbc2 specification.  This class extends
  * org.postgresql.jdbc1.AbstractJdbc1Connection which provides the jdbc1
  * methods.  The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
@@ -126,7 +126,7 @@ public abstract class AbstractJdbc2Connection extends org.postgresql.jdbc1.Abstr
 				"bool",
 				"bit",
 				"date",
-				"time",
+				"time", "timetz",
 				"abstime", "timestamp", "timestamptz",
 				"_bool", "_char", "_int2", "_int4", "_text",
 				"_oid", "_varchar", "_int8", "_float4", "_float8",
@@ -155,7 +155,7 @@ public abstract class AbstractJdbc2Connection extends org.postgresql.jdbc1.Abstr
 												Types.BIT,
 												Types.BIT,
 												Types.DATE,
-												Types.TIME,
+												Types.TIME, Types.TIME,
 												Types.TIMESTAMP, Types.TIMESTAMP, Types.TIMESTAMP,
 												Types.ARRAY, Types.ARRAY, Types.ARRAY, Types.ARRAY, Types.ARRAY,
 												Types.ARRAY, Types.ARRAY, Types.ARRAY, Types.ARRAY, Types.ARRAY,
