@@ -8,7 +8,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.45 2004/08/02 18:07:43 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.46 2004/09/13 07:13:52 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -810,7 +810,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 	public synchronized void moveToCurrentRow()
 	throws SQLException
 	{
-		if (!updateable)
+		if (!isUpdateable())
 		{
 			throw new PSQLException( "postgresql.updateable.notupdateable" );
 		}
