@@ -10,7 +10,7 @@ import org.postgresql.largeobject.*;
 import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.21 2004/02/18 15:50:42 davec Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.22 2004/04/02 06:50:23 jurka Exp $
  * This class defines methods of the jdbc2 specification.  This class extends
  * org.postgresql.jdbc1.AbstractJdbc1Statement which provides the jdbc1
  * methods.  The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
@@ -157,7 +157,15 @@ public abstract class AbstractJdbc2Statement extends org.postgresql.jdbc1.Abstra
 
 	public void setFetchDirection(int direction) throws SQLException
 	{
-		fetchdirection = direction;
+		switch(direction) {
+		case ResultSet.FETCH_FORWARD:
+		case ResultSet.FETCH_REVERSE:
+		case ResultSet.FETCH_UNKNOWN:
+			fetchdirection = direction;
+			break;
+		default:
+			throw new PSQLException("postgresql.res.badfetchdirection", null, new Integer(direction));
+		}
 	}
 
 	public void setFetchSize(int rows) throws SQLException
