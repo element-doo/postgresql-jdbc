@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.8 2004/06/29 06:43:24 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.9 2004/07/27 05:19:27 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -31,6 +31,7 @@ public interface BaseConnection extends PGConnection, Connection
 
 	/**
 	 * Execute a SQL query that returns a single resultset.
+	 * Never causes a new transaction to be started regardless of the autocommit setting.
 	 *
 	 * @param s the query to execute
 	 * @return the (non-null) returned resultset
@@ -40,6 +41,7 @@ public interface BaseConnection extends PGConnection, Connection
 
 	/**
 	 * Execute a SQL query that does not return results.
+	 * Never causes a new transaction to be started regardless of the autocommit setting.
 	 *
 	 * @param s the query to execute
 	 * @throws SQLException if something goes wrong.

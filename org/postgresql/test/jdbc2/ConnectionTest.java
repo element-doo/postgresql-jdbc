@@ -10,7 +10,7 @@ import java.sql.*;
  *
  * PS: Do you know how difficult it is to type on a train? ;-)
  *
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ConnectionTest.java,v 1.14 2004/04/10 13:53:11 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ConnectionTest.java,v 1.15 2004/07/27 05:19:40 jurka Exp $
  */
 
 public class ConnectionTest extends TestCase
@@ -242,8 +242,6 @@ public class ConnectionTest extends TestCase
 			assertEquals(Connection.TRANSACTION_READ_COMMITTED,
 						 con.getTransactionIsolation());
 
-
-            Statement stmt = con.createStatement();
 			// Now run some tests with autocommit enabled.
 			con.setAutoCommit(true);
 
@@ -274,7 +272,26 @@ public class ConnectionTest extends TestCase
 			con.setAutoCommit(false);
 			assertEquals(Connection.TRANSACTION_READ_COMMITTED,
 						 con.getTransactionIsolation());
+			con.commit();
 
+			// Test that getTransactionIsolation() does not actually start a new txn.
+			con.getTransactionIsolation(); // Shouldn't start a new transaction.
+			con.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE); // Should be ok -- we're not in a transaction.
+			con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED); // Should still be ok.
+
+			// Test that we can't change isolation mid-transaction
+			Statement stmt = con.createStatement();
+			stmt.executeQuery("SELECT 1");          // Start transaction.
+			stmt.close();
+			
+			try {
+				con.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+				fail("Expected an exception when changing transaction isolation mid-transaction");
+			} catch (SQLException e) {
+				// Ok.
+			}
+
+			con.rollback();
 			TestUtil.closeDB(con);
 	}
 

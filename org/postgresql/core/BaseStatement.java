@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.13 2004/07/16 09:07:53 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.14 2004/07/27 05:19:27 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -53,4 +53,13 @@ public interface BaseStatement extends PGStatement, Statement
 	 * @throws SQLException if something goes wrong.
 	 */
 	public boolean executeWithFlags(String p_sql, int flags) throws SQLException;
+
+	/**
+	 * Execute a prepared query, passing additional query flags.
+	 *
+	 * @param flags additional {@link QueryExecutor} flags for execution; these
+	 *  are bitwise-ORed into the default flags.
+	 * @throws SQLException if something goes wrong.
+	 */
+	public boolean executeWithFlags(int flags) throws SQLException;
 }

@@ -8,7 +8,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.43 2004/07/16 09:07:59 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.44 2004/07/27 05:19:33 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -158,6 +158,14 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 					// Fetch all results.
 					String cursorName = getString(columnIndex);
 					String fetchSql = "FETCH ALL IN \"" + cursorName + "\"";
+
+					// nb: no BEGIN triggered here. This is fine. If someone
+					// committed, and the cursor was not holdable (closing the
+					// cursor), we avoid starting a new xact and promptly causing
+					// it to fail. If the cursor *was* holdable, we don't want a
+					// new xact anyway since holdable cursor state isn't affected
+					// by xact boundaries. If our caller didn't commit at all, or
+					// autocommit was on, then we wouldn't issue a BEGIN anyway.
 					ResultSet rs = connection.execSQLQuery(fetchSql);
 					((AbstractJdbc2ResultSet)rs).setRefCursor(cursorName);
 					return rs;

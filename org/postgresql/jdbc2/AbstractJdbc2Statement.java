@@ -14,7 +14,7 @@ import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGbytea;
 import org.postgresql.util.PGobject;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.27 2004/07/16 09:08:00 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.28 2004/07/27 05:19:33 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -282,7 +282,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 		return executeWithFlags(0);
 	}
 
-	private boolean executeWithFlags(int flags) throws SQLException
+	public boolean executeWithFlags(int flags) throws SQLException
 	{
         checkClosed();
 		if (isFunction && !returnTypeSet)
