@@ -1,18 +1,17 @@
 /*-------------------------------------------------------------------------
  *
- * PGNotification.java
- *    This interface defines public PostgreSQL extention for Notifications
- *
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.5 2004/01/28 12:16:09 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.6 2004/06/08 07:41:56 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql;
 
-
+/**
+ *    This interface defines public PostgreSQL extention for Notifications
+ */
 public interface PGNotification
 {
 	/**
@@ -31,6 +30,8 @@ public interface PGNotification
 	 * Returns additional information from the notifying process.
 	 * Currently, this feature is unimplemented and always returns
 	 * an empty String.
+	 *
+	 * @since 7.5
 	 */
 	public String getParameter();
 
