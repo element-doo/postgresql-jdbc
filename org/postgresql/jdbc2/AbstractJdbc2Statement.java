@@ -3,7 +3,7 @@
 * Copyright (c) 2004, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.50 2004/11/17 02:43:49 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.51 2004/12/11 04:13:35 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -136,6 +136,10 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 
     protected boolean wantsScrollableResultSet() {
         return resultsettype != ResultSet.TYPE_FORWARD_ONLY;
+    }
+
+    protected boolean wantsHoldableResultSet() {
+        return false;
     }
 
     //
@@ -344,7 +348,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 
 
         // Enable cursor-based resultset if possible.
-        if (fetchSize > 0 && !wantsScrollableResultSet() && !connection.getAutoCommit())
+        if (fetchSize > 0 && !wantsScrollableResultSet() && !connection.getAutoCommit() && !wantsHoldableResultSet())
             flags |= QueryExecutor.QUERY_FORWARD_CURSOR;
 
         // Only use named statements after we hit the threshold
