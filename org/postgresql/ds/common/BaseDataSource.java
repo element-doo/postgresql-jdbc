@@ -12,7 +12,7 @@ import java.io.IOException;
  * Base class for data sources and related classes.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public abstract class BaseDataSource implements Referenceable
 {
@@ -267,7 +267,7 @@ public abstract class BaseDataSource implements Referenceable
     protected Reference createReference() {
 	    return new Reference(
 			    getClass().getName(),
-			    org.postgresql.Driver.getDataSourceObjectFactoryName(),
+			    PGObjectFactory.class.getName(),
 			    null);
     }
 

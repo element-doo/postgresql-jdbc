@@ -10,9 +10,9 @@ import javax.naming.spi.InitialContextFactory;
  * pools.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.3 $
  */
-public class Jdbc23MiniJndiContextFactory implements InitialContextFactory
+public class MiniJndiContextFactory implements InitialContextFactory
 {
     public Context getInitialContext(Hashtable environment)
             throws NamingException
