@@ -14,7 +14,7 @@ import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.GT;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.33 2004/10/10 15:39:41 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.34 2004/10/12 05:51:29 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -2523,10 +2523,20 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 			//handling very large values.  Thus the implementation ends up calling
 			//setString() since there is no current way to stream the value to the server
 			char[] l_chars = new char[length];
-			int l_charsRead;
+			int l_charsRead = 0;
 			try
 			{
-				l_charsRead = x.read(l_chars, 0, length);
+				while(true)
+				{
+					int n = x.read(l_chars, l_charsRead, length - l_charsRead);
+					if (n == -1)
+						break;
+
+					l_charsRead += n;
+
+					if (l_charsRead == length)
+						break;
+				}
 			}
 			catch (IOException l_ioe)
 			{
