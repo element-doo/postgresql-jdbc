@@ -12,7 +12,7 @@ import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 import org.postgresql.core.*;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.24 2004/06/29 06:43:27 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.25 2004/06/29 08:32:13 jurka Exp $
  * This class defines methods of the jdbc2 specification.  This class extends
  * org.postgresql.jdbc1.AbstractJdbc1Statement which provides the jdbc1
  * methods.  The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
@@ -64,8 +64,10 @@ public abstract class AbstractJdbc2Statement extends org.postgresql.jdbc1.Abstra
 
 	public void clearBatch() throws SQLException
 	{
-		batchStatements.clear();
-		batchParameters.clear();
+		if (batchStatements != null) {
+			batchStatements.clear();
+			batchParameters.clear();
+		}
 	}
 
 	//
