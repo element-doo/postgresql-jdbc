@@ -15,7 +15,7 @@ import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLWarning;
 
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.12 2004/07/16 06:14:25 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.13 2004/07/16 09:07:57 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
  */
@@ -999,7 +999,7 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
 	}	
 
 
-	public void setTypeMap(java.util.Map map) throws SQLException
+	public void setTypeMapImpl(java.util.Map map) throws SQLException
 	{
 		typemap = map;
 	}

@@ -2,10 +2,11 @@ package org.postgresql.jdbc2;
 
 
 import java.sql.*;
+import java.util.Map;
 import java.util.Vector;
 import org.postgresql.core.*;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java,v 1.11 2004/06/29 06:43:27 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java,v 1.12 2004/07/16 09:08:04 jurka Exp $
  * This class implements the java.sql.ResultSet interface for JDBC2.
  * However most of the implementation is really done in
  * org.postgresql.jdbc2.AbstractJdbc2ResultSet or one of it's parents
@@ -39,6 +40,21 @@ public class Jdbc2ResultSet extends org.postgresql.jdbc2.AbstractJdbc2ResultSet 
 			return null;
 
 		return new org.postgresql.jdbc2.Jdbc2Blob(connection, getInt(i));
+	}
+
+	public java.sql.Array createArray(int i) throws SQLException
+	{
+		return new org.postgresql.jdbc2.Jdbc2Array(connection, i, fields[i - 1], this);
+	}
+
+	public Object getObject(String s, Map map) throws SQLException
+	{
+		return getObjectImpl(s,map);
+	}
+
+	public Object getObject(int i, Map map) throws SQLException
+	{
+		return getObjectImpl(i, map);
 	}
 
 }

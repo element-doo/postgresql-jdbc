@@ -14,7 +14,7 @@ import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGbytea;
 import org.postgresql.util.PGobject;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.26 2004/07/16 06:14:26 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.27 2004/07/16 09:08:00 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -2626,7 +2626,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 		throw Driver.notImplemented();
 	}
 
-	public Object getObject(int i, java.util.Map map) throws SQLException
+	public Object getObjectImpl(int i, java.util.Map map) throws SQLException
 	{
 		throw Driver.notImplemented();
 	}

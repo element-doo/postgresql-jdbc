@@ -9,7 +9,7 @@ import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 import org.postgresql.core.Field;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Statement.java,v 1.6 2004/06/29 06:43:27 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Statement.java,v 1.7 2004/07/16 09:08:11 jurka Exp $
  * This class defines methods of the jdbc3 specification.  This class extends
  * org.postgresql.jdbc2.AbstractJdbc2Statement which provides the jdbc2
  * methods.  The real Statement class (for jdbc2) is org.postgresql.jdbc3.Jdbc3Statement
@@ -1250,7 +1250,7 @@ public abstract class AbstractJdbc3Statement extends org.postgresql.jdbc2.Abstra
 	 * @see #setObject
 	 * @since 1.4
 	 */
-	public Object getObject (String parameterName, java.util.Map map) throws SQLException
+	public Object getObjectImpl (String parameterName, java.util.Map map) throws SQLException
 	{
 		throw org.postgresql.Driver.notImplemented();
 	}

@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.12 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.13 2004/07/16 09:07:53 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -20,7 +20,7 @@ import java.util.Vector;
  * Driver-internal statement interface. Application code should not use
  * this interface.
  */
-public interface BaseStatement extends PGStatement, Statement, PreparedStatement, CallableStatement
+public interface BaseStatement extends PGStatement, Statement
 {
 	/**
 	 * Create a synthetic resultset from data provided by the driver.
