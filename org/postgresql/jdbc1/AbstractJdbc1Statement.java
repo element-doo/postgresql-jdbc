@@ -26,7 +26,7 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Vector;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.52 2004/03/29 19:17:11 blind Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.53 2004/05/17 20:39:56 jurka Exp $
  * This class defines methods of the jdbc1 specification.  This class is
  * extended by org.postgresql.jdbc2.AbstractJdbc2Statement which adds the jdbc2
  * methods.  The real Statement class (for jdbc1) is org.postgresql.jdbc1.Jdbc1Statement
@@ -1313,6 +1313,14 @@ public abstract class AbstractJdbc1Statement implements BaseStatement
 				//we need to include the local time and timezone offset
 				//so that timestamp without time zone works correctly
 				int l_year = x.getYear() + 1900;
+
+				// always use four digits for the year so very
+				// early years, like 2, don't get misinterpreted
+				int l_yearlen = String.valueOf(l_year).length();
+				for (int i=4; i>l_yearlen; i--) {
+					sbuf.append("0");
+				}
+
 				sbuf.append(l_year);
 				sbuf.append('-');
 				int l_month = x.getMonth() + 1;
