@@ -6,7 +6,7 @@ import junit.framework.*;
 import java.sql.*;
 import java.util.HashMap;
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.4 2004/08/10 11:27:28 davec Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.5 2004/08/11 05:51:22 jurka Exp $
  *
  * Test for getObject
  */
@@ -95,7 +95,7 @@ public class StatementTest extends TestCase
         assertEquals(1,count);
 
 
-        ResultSet rs = stmt.executeQuery( "select {fn 'version()'} as version" );
+        ResultSet rs = stmt.executeQuery( "select {fn version()} as version" );
         assertTrue(rs.next());
 
         count= stmt.executeUpdate( "create temp table b (i int)" );
