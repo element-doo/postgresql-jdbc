@@ -9,7 +9,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.33 2004/02/18 16:21:24 davec Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.34 2004/03/29 19:17:11 blind Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -54,9 +54,9 @@ public abstract class AbstractJdbc2ResultSet extends org.postgresql.jdbc1.Abstra
 	private int resultsetconcurrency;
 	private int fetchdirection;
 
-	public AbstractJdbc2ResultSet(BaseStatement statement, Field[] fields, Vector tuples, String status, int updateCount, long insertOID, boolean binaryCursor)
+	public AbstractJdbc2ResultSet(BaseStatement statement, Field[] fields, Vector tuples, String status, int updateCount, long insertOID)
 	{
-		super (statement, fields, tuples, status, updateCount, insertOID, binaryCursor);
+		super (statement, fields, tuples, status, updateCount, insertOID);
 		this.fetchdirection = (statement == null ? java.sql.ResultSet.FETCH_FORWARD : ((AbstractJdbc2Statement)statement).getFetchDirection());
 		this.resultsettype = (statement == null ? java.sql.ResultSet.TYPE_SCROLL_INSENSITIVE : ((AbstractJdbc2Statement)statement).getResultSetType());
 		this.resultsetconcurrency = (statement == null ? java.sql.ResultSet.CONCUR_READ_ONLY : ((AbstractJdbc2Statement)statement).getResultSetConcurrency());

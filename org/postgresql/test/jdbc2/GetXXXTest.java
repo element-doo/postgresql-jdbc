@@ -6,7 +6,7 @@ import junit.framework.*;
 import java.sql.*;
 import java.util.HashMap;
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/GetXXXTest.java,v 1.1 2004/02/12 15:38:33 davec Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/GetXXXTest.java,v 1.2 2004/03/29 19:17:12 blind Exp $
  *
  * Test for getObject
  */
@@ -31,7 +31,7 @@ public class GetXXXTest extends TestCase
     Calendar cal = Calendar.getInstance();
     cal.add(Calendar.DAY_OF_YEAR, -1);
 
-    pstmt.setTimestamp(1, new Timestamp(cal.getTimeInMillis()));
+    pstmt.setTimestamp(1, new Timestamp(cal.getTime().getTime()));
     pstmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
     assertTrue(pstmt.executeUpdate() == 1);
     pstmt.close();

@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseResultSet.java,v 1.3 2003/11/29 19:52:09 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseResultSet.java,v 1.4 2004/03/29 19:17:10 blind Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -44,7 +44,7 @@ public interface BaseResultSet
 	public boolean next() throws SQLException;
 	public boolean reallyResultSet();
 	public void reInit (Field[] fields, Vector tuples, String status,
-						int updateCount, long insertOID, boolean binaryCursor);
+						int updateCount, long insertOID);
 	public void setStatement(BaseStatement statement);
 
 }
