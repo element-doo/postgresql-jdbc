@@ -8,7 +8,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.53 2004/10/14 09:09:08 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.54 2004/10/17 12:19:38 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -2262,7 +2262,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 			return index.intValue();
 		}
 
-		throw new PSQLException (GT.tr("The column name '{0}' was not found in this ResultSet.", columnName));
+		throw new PSQLException (GT.tr("The column name {0} was not found in this ResultSet.", columnName));
 	}
 
 	/*
