@@ -7,7 +7,7 @@ import java.sql.SQLData;
 import java.sql.SQLException;
 import java.sql.Types;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.8 2004/01/15 08:50:39 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.9 2004/06/11 11:45:49 davec Exp $
  * This class defines methods of the jdbc2 specification.  This class extends
  * org.postgresql.jdbc1.AbstractJdbc1Connection which provides the jdbc1
  * methods.  The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
@@ -113,7 +113,7 @@ public abstract class AbstractJdbc2Connection extends org.postgresql.jdbc1.Abstr
 	 *
 	 * Tip: keep these grouped together by the Types. value
 	 */
-	private static final String jdbc2Types[] = {
+    static final String jdbc2Types[] = {
 				"int2",
 				"int4", "oid",
 				"int8",
@@ -142,7 +142,7 @@ public abstract class AbstractJdbc2Connection extends org.postgresql.jdbc1.Abstr
 	 *
 	 * Tip: keep these grouped together by the Types. value
 	 */
-	private static final int jdbc2Typei[] = {
+	static final int jdbc2Typei[] = {
 												Types.SMALLINT,
 												Types.INTEGER, Types.INTEGER,
 												Types.BIGINT,
