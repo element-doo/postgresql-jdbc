@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * consistent.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class PGObjectFactory implements ObjectFactory
 {
@@ -92,6 +92,11 @@ public class PGObjectFactory implements ObjectFactory
 		}
 		ds.setServerName(getProperty(ref, "serverName"));
 		ds.setUser(getProperty(ref, "user"));
+
+		String prepareThreshold = getProperty(ref, "prepareThreshold");
+		if (prepareThreshold != null)
+			ds.setPrepareThreshold(Integer.parseInt(prepareThreshold));
+
 		return ds;
 	}
 

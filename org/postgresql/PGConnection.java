@@ -9,7 +9,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/PGConnection.java,v 1.7 2003/11/29 19:52:09 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/PGConnection.java,v 1.8 2004/06/08 00:01:47 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -63,7 +63,23 @@ public interface PGConnection
          * @see org.postgresql.util.PGobject
          */
         public void addDataType(String type, String name);
-
+	
+	/**
+	 * Set the default statement reuse threshold before enabling server-side
+	 * prepare. See {@link org.postgresql.PGStatement#setPrepareThreshold(int)} for 
+	 * details.
+	 *
+	 * @param threshold the new threshold
+	 */
+	public void setPrepareThreshold(int threshold);
+	
+	/**
+	 * Get the default server-side prepare reuse threstold for statements created
+	 * from this connection.
+	 *
+	 * @return the current threshold
+	 */
+	public int getPrepareThreshold();
 
 	/** @deprecated */
 	public Encoding getEncoding() throws SQLException;

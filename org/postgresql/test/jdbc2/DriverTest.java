@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import java.sql.*;
 
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DriverTest.java,v 1.7 2003/11/29 22:41:23 pgsql Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DriverTest.java,v 1.8 2004/06/08 00:01:49 jurka Exp $
  *
  * Tests the dynamically created class org.postgresql.Driver
  *
@@ -70,7 +70,7 @@ public class DriverTest extends TestCase
 			con.close();
 
 			// Test with the username in the url
-			con = DriverManager.getConnection(TestUtil.getURL() + "?user=" + TestUtil.getUser() + "&password=" + TestUtil.getPassword());
+			con = DriverManager.getConnection(TestUtil.getURL() + "&user=" + TestUtil.getUser() + "&password=" + TestUtil.getPassword());
 			assertNotNull(con);
 			con.close();
 		}

@@ -8,7 +8,7 @@ import org.postgresql.jdbc2.optional.SimpleDataSource;
  * configuration logic.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class SimpleDataSourceTest extends BaseDataSourceTest
 {
@@ -33,6 +33,7 @@ public class SimpleDataSourceTest extends BaseDataSourceTest
 			bds.setDatabaseName(TestUtil.getDatabase());
 			bds.setUser(TestUtil.getUser());
 			bds.setPassword(TestUtil.getPassword());
+			bds.setPrepareThreshold(TestUtil.getPrepareThreshold());
 		}
 	}
 }

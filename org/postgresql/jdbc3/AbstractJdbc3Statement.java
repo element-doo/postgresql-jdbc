@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.util.Calendar;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Statement.java,v 1.4 2003/11/29 19:52:11 pgsql Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Statement.java,v 1.5 2004/06/08 00:01:48 jurka Exp $
  * This class defines methods of the jdbc3 specification.  This class extends
  * org.postgresql.jdbc2.AbstractJdbc2Statement which provides the jdbc2
  * methods.  The real Statement class (for jdbc2) is org.postgresql.jdbc3.Jdbc3Statement
@@ -13,7 +13,7 @@ import java.util.Calendar;
 public abstract class AbstractJdbc3Statement extends org.postgresql.jdbc2.AbstractJdbc2Statement
 {
 
-	public AbstractJdbc3Statement (AbstractJdbc3Connection c)
+	public AbstractJdbc3Statement (AbstractJdbc3Connection c) throws SQLException
 	{
 		super(c);
 	}

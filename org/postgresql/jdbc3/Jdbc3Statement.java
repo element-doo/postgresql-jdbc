@@ -7,7 +7,7 @@ import org.postgresql.PGRefCursorResultSet;
 import org.postgresql.core.BaseResultSet;
 import org.postgresql.core.Field;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3Statement.java,v 1.7 2004/03/29 19:17:12 blind Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3Statement.java,v 1.8 2004/06/08 00:01:48 jurka Exp $
  * This class implements the java.sql.Statement interface for JDBC3.
  * However most of the implementation is really done in
  * org.postgresql.jdbc3.AbstractJdbc3Statement or one of it's parents
@@ -15,7 +15,7 @@ import org.postgresql.core.Field;
 public class Jdbc3Statement extends org.postgresql.jdbc3.AbstractJdbc3Statement implements java.sql.Statement
 {
 
-	public Jdbc3Statement (Jdbc3Connection c)
+	public Jdbc3Statement (Jdbc3Connection c) throws SQLException
 	{
 		super(c);
 	}
