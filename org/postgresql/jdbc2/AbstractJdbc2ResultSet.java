@@ -8,7 +8,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.49 2004/10/10 15:39:41 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.50 2004/10/10 17:28:21 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -680,7 +680,9 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 
 			for ( int i = 0; i < numKeys; i++ )
 			{
-				deleteSQL.append( ((PrimaryKey) primaryKeys.get(i)).name ).append( " = ? " );
+				deleteSQL.append("\"");
+				deleteSQL.append( ((PrimaryKey) primaryKeys.get(i)).name );
+				deleteSQL.append("\" = ?");
 				if ( i < numKeys - 1 )
 				{
 					deleteSQL.append( " and " );
@@ -731,7 +733,9 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
 			{
 				String columnName = (String) columnNames.nextElement();
 
+				insertSQL.append("\"");
 				insertSQL.append( columnName );
+				insertSQL.append("\"");
 				if ( i < numColumns - 1 )
 				{
 					insertSQL.append(", ");
