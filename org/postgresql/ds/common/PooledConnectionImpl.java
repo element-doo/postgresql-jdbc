@@ -10,11 +10,11 @@ import org.postgresql.PGConnection;
  * PostgreSQL implementation of the PooledConnection interface.  This shouldn't
  * be used directly, as the pooling client should just interact with the
  * ConnectionPool instead.
- * @see ConnectionPool
+ * @see org.postgresql.ds.PGConnectionPool
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
  * @author Csaba Nagy (ncsaba@yahoo.com)
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class PooledConnectionImpl implements PooledConnection
 {
