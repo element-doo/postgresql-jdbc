@@ -14,7 +14,7 @@ import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.GT;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.36 2004/10/18 03:45:25 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.37 2004/10/21 19:09:34 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -1660,9 +1660,11 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 	{
 		checkClosed();
 		checkIndex (parameterIndex, Types.TINYINT, "Byte");
-		if (callResult == null)
-			return 0;
-		return (byte)((Integer)callResult).intValue ();
+		// We expect the above checkIndex call to fail because
+		// we don't have an equivalent pg type for TINYINT.
+		// Possibly "char" (not char(N)), could be used, but
+		// for the moment we just bail out.
+		throw new PSQLException(GT.tr("Something unusual has occured to cause the driver to fail. Please report this exception."), PSQLState.UNEXPECTED_ERROR);
 	}
 
 	/*
@@ -1678,7 +1680,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 		checkIndex (parameterIndex, Types.SMALLINT, "Short");
 		if (callResult == null)
 			return 0;
-		return (short)((Integer)callResult).intValue ();
+		return (short)((Short)callResult).intValue ();
 	}
 
 
