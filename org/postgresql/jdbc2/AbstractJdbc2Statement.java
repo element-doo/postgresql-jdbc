@@ -13,7 +13,7 @@ import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGobject;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.30 2004/09/20 08:36:50 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.31 2004/09/21 01:14:06 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -327,7 +327,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 
 
 		// Enable cursor-based resultset if possible.
-		if (fetchSize > 0 && !wantsScrollableResultSet())
+		if (fetchSize > 0 && !wantsScrollableResultSet() && !connection.getAutoCommit())
 			flags |= QueryExecutor.QUERY_FORWARD_CURSOR;
 
 		// Only use named statements after we hit the threshold
