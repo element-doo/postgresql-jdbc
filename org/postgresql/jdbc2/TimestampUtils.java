@@ -6,11 +6,11 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc1/TimestampUtils.java,v 1.1 2004/06/29 06:43:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/TimestampUtils.java,v 1.1 2004/07/16 06:14:26 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
-package org.postgresql.jdbc1;
+package org.postgresql.jdbc2;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -21,7 +21,7 @@ import org.postgresql.util.*;
 
 /**
  * Misc utils for handling time and date values.
- * Extracted from AbstractJdbc1ResultSet.
+ * Extracted from AbstractJdbc2ResultSet.
  */
 public class TimestampUtils {
 	private static StringBuffer sbuf = new StringBuffer();

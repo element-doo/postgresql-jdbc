@@ -6,11 +6,11 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc1/ResultWrapper.java,v 1.1 2004/06/29 06:43:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/ResultWrapper.java,v 1.1 2004/07/16 06:14:26 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
-package org.postgresql.jdbc1;
+package org.postgresql.jdbc2;
 
 import java.sql.*;
 
