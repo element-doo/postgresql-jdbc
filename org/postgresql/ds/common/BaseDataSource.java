@@ -1,4 +1,4 @@
-package org.postgresql.jdbc2.optional;
+package org.postgresql.ds.common;
 
 import javax.naming.*;
 import java.io.PrintWriter;
@@ -12,7 +12,7 @@ import java.io.IOException;
  * Base class for data sources and related classes.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.1 $
  */
 public abstract class BaseDataSource implements Referenceable
 {
@@ -262,12 +262,13 @@ public abstract class BaseDataSource implements Referenceable
 	}
 
     /**
-     * Generates a reference using the appropriate object factory.  This
-     * implementation uses the JDBC 2 optional package object factory.
+     * Generates a reference using the appropriate object factory.
      */
-    protected Reference createReference()
-    {
-        return new Reference(getClass().getName(), PGObjectFactory.class.getName(), null);
+    protected Reference createReference() {
+	    return new Reference(
+			    getClass().getName(),
+			    org.postgresql.Driver.getDataSourceObjectFactoryName(),
+			    null);
     }
 
 	public Reference getReference() throws NamingException

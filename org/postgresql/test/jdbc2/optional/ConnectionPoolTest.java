@@ -1,6 +1,7 @@
 package org.postgresql.test.jdbc2.optional;
 
 import org.postgresql.jdbc2.optional.ConnectionPool;
+import org.postgresql.ds.PGConnectionPool;
 import org.postgresql.test.TestUtil;
 import javax.sql.*;
 import java.sql.*;
@@ -12,7 +13,7 @@ import java.io.*;
  * interface to the PooledConnection is through the CPDS.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class ConnectionPoolTest extends BaseDataSourceTest
 {
@@ -48,7 +49,11 @@ public class ConnectionPoolTest extends BaseDataSourceTest
 	protected PooledConnection getPooledConnection() throws SQLException
 	{
 		initializeDataSource();
-		return ((ConnectionPool)bds).getPooledConnection();
+		// we need to recast to PGConnectionPool rather than
+		// jdbc.optional.ConnectionPool because our ObjectFactory
+		// returns only the top level class, not the specific
+		// jdbc2/jdbc3 implementations.
+		return ((PGConnectionPool)bds).getPooledConnection();
 	}
 
 	/**

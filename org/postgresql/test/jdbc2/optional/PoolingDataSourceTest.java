@@ -4,13 +4,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import org.postgresql.test.TestUtil;
 import org.postgresql.jdbc2.optional.PoolingDataSource;
-import org.postgresql.jdbc2.optional.BaseDataSource;
+import org.postgresql.ds.common.BaseDataSource;
 
 /**
  * Minimal tests for pooling DataSource.  Needs many more.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class PoolingDataSourceTest extends BaseDataSourceTest
 {

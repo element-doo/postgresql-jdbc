@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/Driver.java.in,v 1.48 2004/10/10 15:39:30 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/Driver.java.in,v 1.49 2004/10/15 05:46:17 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -538,5 +538,11 @@ public class Driver implements java.sql.Driver
 		return l_return;
 	}
 
+	public static String getDataSourceObjectFactoryName() {
+		String name;
+		name = "org.postgresql.ds.jdbc23.Jdbc23ObjectFactory";
+@NOGENERICS@    name = "org.postgresql.ds.jdbc3g.Jdbc3gObjectFactory";
+		return name;
+	}
 
 }
