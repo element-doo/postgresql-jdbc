@@ -12,7 +12,7 @@ import java.io.IOException;
  * Base class for data sources and related classes.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public abstract class BaseDataSource implements Referenceable
 {
@@ -245,7 +245,7 @@ public abstract class BaseDataSource implements Referenceable
 	/**
 	 * Gets the default threshold for enabling server-side prepare.
 	 *
-	 * @see #setServerPrepareThreshold(int)
+	 * @see #setPrepareThreshold(int)
 	 */
 	public int getPrepareThreshold()
 	{

@@ -1,38 +1,38 @@
 package org.postgresql.jdbc3;
 
-
+import java.util.Properties;
 import java.sql.SQLException;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3Connection.java,v 1.6 2003/11/29 19:52:11 pgsql Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3Connection.java,v 1.7 2004/06/29 06:43:27 jurka Exp $
  * This class implements the java.sql.Connection interface for JDBC3.
  * However most of the implementation is really done in
  * org.postgresql.jdbc3.AbstractJdbc3Connection or one of it's parents
  */
 public class Jdbc3Connection extends org.postgresql.jdbc3.AbstractJdbc3Connection implements java.sql.Connection
 {
+	public Jdbc3Connection(String host, int port, String user, String database, Properties info, String url) throws SQLException {
+		super(host, port, user, database, info, url);
+	}
 
-	public java.sql.Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException
+	public java.sql.Statement createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException
 	{
-		Jdbc3Statement s = new Jdbc3Statement(this);
-		s.setResultSetType(resultSetType);
-		s.setResultSetConcurrency(resultSetConcurrency);
+		Jdbc3Statement s = new Jdbc3Statement(this, resultSetType, resultSetConcurrency, resultSetHoldability);
+		s.setPrepareThreshold(getPrepareThreshold());
 		return s;
 	}
 
 
-	public java.sql.PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency) throws SQLException
+	public java.sql.PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException
 	{
-		Jdbc3PreparedStatement s = new Jdbc3PreparedStatement(this, sql);
-		s.setResultSetType(resultSetType);
-		s.setResultSetConcurrency(resultSetConcurrency);
+		Jdbc3PreparedStatement s = new Jdbc3PreparedStatement(this, sql, resultSetType, resultSetConcurrency, resultSetHoldability);
+		s.setPrepareThreshold(getPrepareThreshold());
 		return s;
 	}
 
-	public java.sql.CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency) throws SQLException
+	public java.sql.CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException
 	{
-		Jdbc3CallableStatement s = new Jdbc3CallableStatement(this, sql);
-		s.setResultSetType(resultSetType);
-		s.setResultSetConcurrency(resultSetConcurrency);
+		Jdbc3CallableStatement s = new Jdbc3CallableStatement(this, sql, resultSetType, resultSetConcurrency, resultSetHoldability);
+		s.setPrepareThreshold(getPrepareThreshold());
 		return s;
 	}
 

@@ -3,7 +3,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpath.java,v 1.8 2004/06/07 21:52:45 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpath.java,v 1.9 2004/06/29 06:43:26 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -111,6 +111,15 @@ public class PGpath extends PGobject implements Serializable, Cloneable
 			return true;
 		}
 		return false;
+	}
+
+	public int hashCode() {
+		// XXX not very good..
+		int hash = 0;
+		for (int i = 0; i < points.length && i < 5; ++i) {
+			hash = hash ^ points[i].hashCode();
+		}
+		return hash;
 	}
 
 	public Object clone()

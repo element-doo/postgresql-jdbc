@@ -1,19 +1,20 @@
 package org.postgresql.jdbc2;
 
-
 import java.io.PrintWriter;
-import java.sql.DriverManager;
-import java.sql.SQLData;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
+import java.util.Properties;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.9 2004/06/11 11:45:49 davec Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.10 2004/06/29 06:43:27 jurka Exp $
  * This class defines methods of the jdbc2 specification.  This class extends
  * org.postgresql.jdbc1.AbstractJdbc1Connection which provides the jdbc1
  * methods.  The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
  */
 public abstract class AbstractJdbc2Connection extends org.postgresql.jdbc1.AbstractJdbc1Connection
 {
+	protected AbstractJdbc2Connection(String host, int port, String user, String database, Properties info, String url) throws SQLException {
+		super(host, port, user, database, info, url);
+	}
+
 	/*
 	 * The current type mappings
 	 */
@@ -92,16 +93,14 @@ public abstract class AbstractJdbc2Connection extends org.postgresql.jdbc1.Abstr
 	 */
 	public int getSQLType(String pgTypeName)
 	{
-		int sqlType = Types.OTHER; // default value
+		if (pgTypeName == null)
+			return Types.OTHER;
+
 		for (int i = 0;i < jdbc2Types.length;i++)
-		{
 			if (pgTypeName.equals(jdbc2Types[i]))
-			{
-				sqlType = jdbc2Typei[i];
-				break;
-			}
-		}
-		return sqlType;
+				return jdbc2Typei[i];
+
+		return Types.OTHER;
 	}
 
 	/*

@@ -3,7 +3,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGlseg.java,v 1.7 2004/06/07 21:52:45 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGlseg.java,v 1.8 2004/06/29 06:43:26 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -94,6 +94,11 @@ public class PGlseg extends PGobject implements Serializable, Cloneable
 				   (p.point[0].equals(point[1]) && p.point[1].equals(point[0]));
 		}
 		return false;
+	}
+
+	public int hashCode()
+	{
+		return point[0].hashCode() ^ point[1].hashCode();
 	}
 
 	public Object clone()

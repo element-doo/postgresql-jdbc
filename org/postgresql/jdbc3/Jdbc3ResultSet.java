@@ -3,25 +3,24 @@ package org.postgresql.jdbc3;
 
 import java.sql.*;
 import java.util.Vector;
-import org.postgresql.core.Field;
-import org.postgresql.core.BaseStatement;
+import org.postgresql.core.*;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3ResultSet.java,v 1.7 2004/03/29 19:17:12 blind Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3ResultSet.java,v 1.8 2004/06/29 06:43:27 jurka Exp $
  * This class implements the java.sql.ResultSet interface for JDBC3.
  * However most of the implementation is really done in
  * org.postgresql.jdbc3.AbstractJdbc3ResultSet or one of it's parents
  */
 public class Jdbc3ResultSet extends org.postgresql.jdbc3.AbstractJdbc3ResultSet implements java.sql.ResultSet
 {
-
-	public Jdbc3ResultSet(BaseStatement statement, Field[] fields, Vector tuples, String status, int updateCount, long insertOID)
+	Jdbc3ResultSet(Query originalQuery, BaseStatement statement, Field[] fields, Vector tuples, ResultCursor cursor, 
+				   int maxRows, int maxFieldSize, int rsType, int rsConcurrency, int rsHoldability) throws SQLException
 	{
-		super(statement, fields, tuples, status, updateCount, insertOID);
+		super(originalQuery, statement, fields, tuples, cursor, maxRows, maxFieldSize, rsType, rsConcurrency, rsHoldability);
 	}
 
 	public java.sql.ResultSetMetaData getMetaData() throws SQLException
 	{
-		return new Jdbc3ResultSetMetaData(rows, fields);
+		return new Jdbc3ResultSetMetaData(connection, fields);
 	}
 
 	public java.sql.Clob getClob(int i) throws SQLException

@@ -3,14 +3,14 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.6 2004/06/08 07:41:56 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.7 2004/06/29 06:43:24 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql;
 
 /**
- *    This interface defines public PostgreSQL extention for Notifications
+ *    This interface defines the public PostgreSQL extension for Notifications
  */
 public interface PGNotification
 {

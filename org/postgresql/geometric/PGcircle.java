@@ -3,7 +3,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGcircle.java,v 1.9 2004/06/07 21:52:45 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGcircle.java,v 1.10 2004/06/29 06:43:26 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -105,6 +105,12 @@ public class PGcircle extends PGobject implements Serializable, Cloneable
 			return p.center.equals(center) && p.radius == radius;
 		}
 		return false;
+	}
+
+	public int hashCode()
+	{
+		long v = Double.doubleToLongBits(radius);
+		return (int) (center.hashCode() ^ v ^ (v>>>32));
 	}
 
 	public Object clone()

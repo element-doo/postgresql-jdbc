@@ -7,7 +7,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/util/MD5Digest.java,v 1.6 2003/11/29 19:52:11 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/MD5Digest.java,v 1.7 2004/06/29 06:43:29 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -45,8 +45,8 @@ public class MD5Digest
 		{
 			md = MessageDigest.getInstance("MD5");
 
-			md.update(password.getBytes());
-			md.update(user.getBytes());
+			md.update(password.getBytes("US-ASCII"));
+			md.update(user.getBytes("US-ASCII"));
 			temp_digest = md.digest();
 
 			bytesToHex(temp_digest, hex_digest, 0);

@@ -3,7 +3,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpoint.java,v 1.8 2004/06/07 21:52:45 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpoint.java,v 1.9 2004/06/29 06:43:26 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -97,6 +97,13 @@ public class PGpoint extends PGobject implements Serializable, Cloneable
 			return x == p.x && y == p.y;
 		}
 		return false;
+	}
+
+	public int hashCode()
+	{
+		long v1 = Double.doubleToLongBits(x);
+		long v2 = Double.doubleToLongBits(y);
+		return (int) (v1 ^ v2 ^ (v1>>>32) ^ (v2>>>32));
 	}
 
 	public Object clone()

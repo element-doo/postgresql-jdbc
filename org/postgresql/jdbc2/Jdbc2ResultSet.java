@@ -3,25 +3,24 @@ package org.postgresql.jdbc2;
 
 import java.sql.*;
 import java.util.Vector;
-import org.postgresql.core.BaseStatement;
-import org.postgresql.core.Field;
+import org.postgresql.core.*;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java,v 1.10 2004/03/29 19:17:11 blind Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java,v 1.11 2004/06/29 06:43:27 jurka Exp $
  * This class implements the java.sql.ResultSet interface for JDBC2.
  * However most of the implementation is really done in
  * org.postgresql.jdbc2.AbstractJdbc2ResultSet or one of it's parents
  */
 public class Jdbc2ResultSet extends org.postgresql.jdbc2.AbstractJdbc2ResultSet implements java.sql.ResultSet
 {
-
-	public Jdbc2ResultSet(BaseStatement statement, Field[] fields, Vector tuples, String status, int updateCount, long insertOID)
+	Jdbc2ResultSet(Query originalQuery, BaseStatement statement, Field[] fields, Vector tuples, ResultCursor cursor,
+				   int maxRows, int maxFieldSize, int rsType, int rsConcurrency) throws SQLException
 	{
-		super(statement, fields, tuples, status, updateCount, insertOID);
+		super(originalQuery, statement, fields, tuples, cursor, maxRows, maxFieldSize, rsType, rsConcurrency);
 	}
 
 	public ResultSetMetaData getMetaData() throws SQLException
 	{
-		return new Jdbc2ResultSetMetaData(rows, fields);
+		return new Jdbc2ResultSetMetaData(connection, fields);
 	}
 
 	public java.sql.Clob getClob(int i) throws SQLException
