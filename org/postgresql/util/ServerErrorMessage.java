@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/util/ServerErrorMessage.java,v 1.6 2005/01/11 08:25:49 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/util/ServerErrorMessage.java,v 1.7 2005/02/10 19:53:17 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -55,6 +55,11 @@ public class ServerErrorMessage
     public String getSQLState()
     {
         return (String)m_mesgParts.get(SQLSTATE);
+    }
+
+    public String getMessage()
+    {
+        return (String)m_mesgParts.get(MESSAGE);
     }
 
     public String toString()

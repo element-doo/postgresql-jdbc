@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/util/PSQLWarning.java,v 1.4 2005/01/11 08:25:49 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/util/PSQLWarning.java,v 1.5 2005/02/10 19:53:17 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -29,5 +29,10 @@ public class PSQLWarning extends SQLWarning
     public String getSQLState()
     {
         return serverError.getSQLState();
+    }
+
+    public String getMessage()
+    {
+        return serverError.getMessage();
     }
 }
