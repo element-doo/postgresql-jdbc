@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/Oid.java,v 1.5 2004/11/07 22:15:32 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.core;
 
 /**

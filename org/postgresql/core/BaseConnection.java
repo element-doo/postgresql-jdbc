@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * BaseConnection.java
- *	  The internal interface definition for a jdbc connection
- *
- * Copyright (c) 2003, PostgreSQL Global Development Group
+ * Copyright (c) 2003-2004, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.10 2004/09/20 08:36:48 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.11 2004/11/07 22:15:32 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

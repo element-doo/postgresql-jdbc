@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/JBuilderTest.java,v 1.11 2004/11/07 22:16:52 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc2;
 
 import org.postgresql.test.TestUtil;
@@ -6,8 +15,6 @@ import java.sql.*;
 import junit.framework.TestCase;
 
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/JBuilderTest.java,v 1.10 2004/09/20 08:36:51 jurka Exp $
- *
  * Some simple tests to check that the required components needed for JBuilder
  * stay working
  *

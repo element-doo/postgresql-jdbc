@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/Jdbc3TestSuite.java,v 1.8 2004/11/07 22:17:07 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc3;
 
 import junit.framework.TestSuite;

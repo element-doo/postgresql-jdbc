@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * CompositeQuery.java
- *	  V3 Query implementation for queries that involve multiple statements.
- *
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/CompositeQuery.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/CompositeQuery.java,v 1.2 2004/11/07 22:15:38 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

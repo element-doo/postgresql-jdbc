@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * ResultHandler.java
- *     Callback interface for handling protocol-level query results.
- *
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/ResultHandler.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/ResultHandler.java,v 1.2 2004/11/07 22:15:33 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

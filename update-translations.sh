@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# $PostgreSQL: pgjdbc/update-translations.sh,v 1.4 2004/11/07 22:15:24 jurka Exp $
 
 ant clean
 find . -name '*.java' -o -name '*.java.in' > translation.filelist

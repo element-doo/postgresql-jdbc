@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/PSQLDriverVersion.java,v 1.3 2004/11/07 22:17:15 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.util;
 
 import org.postgresql.Driver;

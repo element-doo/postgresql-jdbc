@@ -1,15 +1,18 @@
 /*-------------------------------------------------------------------------
  *
- * PSQLState.java
- *     This class is used for holding SQLState codes.
+ * Copyright (c) 2003-2004, PostgreSQL Global Development Group
  *
- * Copyright (c) 2003, PostgreSQL Global Development Group
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/PSQLState.java,v 1.5 2004/11/07 22:17:15 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
  
  package org.postgresql.util;
- 
+
+/**
+ * This class is used for holding SQLState codes.
+ */
  public class PSQLState implements java.io.Serializable
  {
  	private String state;

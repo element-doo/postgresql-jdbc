@@ -1,10 +1,19 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3Connection.java,v 1.9 2004/11/07 22:16:26 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.jdbc3;
 
 import java.util.Map;
 import java.util.Properties;
 import java.sql.SQLException;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3Connection.java,v 1.8 2004/07/16 09:08:11 jurka Exp $
+/**
  * This class implements the java.sql.Connection interface for JDBC3.
  * However most of the implementation is really done in
  * org.postgresql.jdbc3.AbstractJdbc3Connection or one of it's parents

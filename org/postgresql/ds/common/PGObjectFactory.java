@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/ds/common/PGObjectFactory.java,v 1.2 2004/11/07 22:15:45 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.ds.common;
 
 import javax.naming.*;
@@ -15,7 +24,6 @@ import org.postgresql.ds.*;
  * consistent.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.1 $
  */
 public class PGObjectFactory implements ObjectFactory
 {

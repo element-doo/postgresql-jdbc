@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * ResultCursor.java
- *     Abstraction of a cursor over a returned resultset.
- *
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/ResultCursor.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/ResultCursor.java,v 1.2 2004/11/07 22:15:33 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * SimpleParameterList.java
- *	  Parameter list for query parameters in the V2 protocol.
- *
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.2 2004/10/10 15:39:36 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.3 2004/11/07 22:15:36 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

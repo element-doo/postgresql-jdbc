@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/optional/BaseDataSourceTest.java,v 1.9 2004/11/07 22:17:06 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc2.optional;
 
 import junit.framework.TestCase;
@@ -18,7 +27,6 @@ import javax.naming.*;
  * tests.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.8 $
  */
 public abstract class BaseDataSourceTest extends TestCase
 {

@@ -1,9 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * Copyright (c) 2003, PostgreSQL Global Development Group
+ * Copyright (c) 2003-2004, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/largeobject/LargeObject.java,v 1.13 2004/06/29 06:43:28 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/largeobject/LargeObject.java,v 1.14 2004/11/07 22:16:37 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

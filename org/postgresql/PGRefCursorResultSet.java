@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * PGRefCursorResultSet.java
- *	  Describes a PLPGSQL refcursor type.
- *
- * Copyright (c) 2003, PostgreSQL Global Development Group
+ * Copyright (c) 2003-2004, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/PGRefCursorResultSet.java,v 1.3 2004/06/29 06:43:24 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/PGRefCursorResultSet.java,v 1.4 2004/11/07 22:15:29 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

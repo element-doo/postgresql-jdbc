@@ -1,10 +1,17 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/TypesTest.java,v 1.4 2004/11/07 22:17:07 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc3;
 
 import java.sql.*;
 import junit.framework.TestCase;
 import org.postgresql.test.TestUtil;
-
-/* $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/TypesTest.java,v 1.3 2004/10/26 17:17:24 jurka Exp $ */
 
 public class TypesTest extends TestCase {
 

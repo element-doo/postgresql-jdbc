@@ -1,6 +1,8 @@
 # Italian message translation for the PostgreSQL JDBC driver
 # This file is distributed under the same license as the package.
 #
+# $PostgreSQL: pgjdbc/org/postgresql/translation/it.po,v 1.2 2004/11/07 22:17:10 jurka Exp $
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PostgreSQL JDBC Driver 8.0\n"

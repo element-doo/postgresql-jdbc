@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * ResultWrapper.java
- *	  Helper class that stores result info.
- *
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/ResultWrapper.java,v 1.1 2004/07/16 06:14:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/ResultWrapper.java,v 1.2 2004/11/07 22:16:21 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/MiscTest.java,v 1.15 2004/11/07 22:16:55 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc2;
 
 import org.postgresql.test.TestUtil;
@@ -6,8 +15,6 @@ import java.sql.*;
 import java.io.*;
 
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/MiscTest.java,v 1.14 2004/09/20 08:36:51 jurka Exp $
- *
  * Some simple tests based on problems reported by users. Hopefully these will
  * help prevent previous problems from re-occuring ;-)
  *

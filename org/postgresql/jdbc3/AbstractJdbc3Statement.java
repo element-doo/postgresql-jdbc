@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Statement.java,v 1.12 2004/11/07 22:16:26 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.jdbc3;
 
 import java.math.BigDecimal;
@@ -11,7 +20,7 @@ import org.postgresql.core.Field;
 import org.postgresql.core.Oid;
 import org.postgresql.util.GT;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Statement.java,v 1.11 2004/10/26 17:17:22 jurka Exp $
+/**
  * This class defines methods of the jdbc3 specification.  This class extends
  * org.postgresql.jdbc2.AbstractJdbc2Statement which provides the jdbc2
  * methods.  The real Statement class (for jdbc2) is org.postgresql.jdbc3.Jdbc3Statement

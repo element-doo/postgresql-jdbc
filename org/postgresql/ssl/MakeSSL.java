@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/ssl/MakeSSL.java,v 1.2 2004/11/07 22:16:38 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.ssl;
 
 import java.util.Properties;

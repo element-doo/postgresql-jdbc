@@ -1,6 +1,8 @@
 # Traditional Chinese message translation for the PostgreSQL JDBC driver
 # This file is distributed under the same license as the package.
 #
+# $PostgreSQL: pgjdbc/org/postgresql/translation/zh_TW.po,v 1.2 2004/11/07 22:17:13 jurka Exp $
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PostgreSQL JDBC Driver 8.0\n"

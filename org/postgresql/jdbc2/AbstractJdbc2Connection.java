@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.20 2004/11/07 22:16:03 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.jdbc2;
 
 import java.io.IOException;
@@ -14,8 +23,7 @@ import org.postgresql.util.PGobject;
 import org.postgresql.util.PSQLException;
 import org.postgresql.util.GT;
 
-
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.19 2004/10/14 09:28:52 jurka Exp $
+/**
  * This class defines methods of the jdbc2 specification.
  * The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
  */

@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DateTest.java,v 1.9 2004/11/07 22:16:47 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc2;
 
 import org.postgresql.test.TestUtil;
@@ -5,8 +14,6 @@ import junit.framework.TestCase;
 import java.sql.*;
 
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DateTest.java,v 1.8 2004/09/20 08:36:51 jurka Exp $
- *
  * Some simple tests based on problems reported by users. Hopefully these will
  * help prevent previous problems from re-occuring ;-)
  *

@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/EncodingTest.java,v 1.7 2004/11/07 22:16:49 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 
 package org.postgresql.test.jdbc2;
 
@@ -8,7 +17,6 @@ import java.io.*;
 /*
  * Tests for the Encoding class.
  *
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/EncodingTest.java,v 1.6 2004/06/29 06:43:28 jurka Exp $
  */
 
 

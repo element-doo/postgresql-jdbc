@@ -1,12 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * PGmoney.java
- *     This implements a class that handles the PostgreSQL money and cash types
- *
- * Copyright (c) 2003, PostgreSQL Global Development Group
+ * Copyright (c) 2003-2004, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/util/PGmoney.java,v 1.8 2004/10/10 15:39:46 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/PGmoney.java,v 1.9 2004/11/07 22:17:15 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -16,6 +13,9 @@ package org.postgresql.util;
 import java.io.Serializable;
 import java.sql.SQLException;
 
+/**
+ * This implements a class that handles the PostgreSQL money and cash types
+ */
 public class PGmoney extends PGobject implements Serializable, Cloneable
 {
 	/*

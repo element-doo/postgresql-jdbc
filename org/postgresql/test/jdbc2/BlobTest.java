@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/BlobTest.java,v 1.12 2004/11/07 22:16:41 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc2;
 
 import org.postgresql.test.TestUtil;
@@ -7,9 +16,7 @@ import java.sql.*;
 
 import org.postgresql.largeobject.*;
 
-/*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/BlobTest.java,v 1.11 2004/09/20 08:36:50 jurka Exp $
- *
+/**
  * Some simple tests based on problems reported by users. Hopefully these will
  * help prevent previous problems from re-occuring ;-)
  *

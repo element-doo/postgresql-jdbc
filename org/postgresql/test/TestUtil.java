@@ -1,9 +1,18 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/TestUtil.java,v 1.14 2004/11/07 22:16:39 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test;
 
 import java.sql.*;
 import java.util.Properties;
 
-/*
+/**
  * Utility class for JDBC tests
  */
 public class TestUtil

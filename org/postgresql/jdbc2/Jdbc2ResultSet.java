@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java,v 1.13 2004/11/07 22:16:19 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.jdbc2;
 
 
@@ -6,10 +15,10 @@ import java.util.Map;
 import java.util.Vector;
 import org.postgresql.core.*;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java,v 1.12 2004/07/16 09:08:04 jurka Exp $
+/**
  * This class implements the java.sql.ResultSet interface for JDBC2.
  * However most of the implementation is really done in
- * org.postgresql.jdbc2.AbstractJdbc2ResultSet or one of it's parents
+ * org.postgresql.jdbc2.AbstractJdbc2ResultSet
  */
 public class Jdbc2ResultSet extends org.postgresql.jdbc2.AbstractJdbc2ResultSet implements java.sql.ResultSet
 {

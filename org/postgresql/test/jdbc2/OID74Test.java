@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/OID74Test.java,v 1.8 2004/11/07 22:16:56 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc2;
                                                                                                                                                                                      
 import org.postgresql.test.TestUtil;
@@ -10,9 +19,6 @@ import java.sql.*;
 
 /**
  * User: alexei
- * Date: 17-Dec-2003
- * Time: 11:01:44
- * @version $Id: OID74Test.java,v 1.7 2004/10/22 21:48:19 jurka Exp $
  */
 public class OID74Test  extends TestCase
 {

@@ -1,19 +1,17 @@
 /*-------------------------------------------------------------------------
  *
- * UnixCrypt.java
- *     Contains static methods to encrypt and compare
- *     passwords with Unix encrypted passwords.
- *
- * Copyright (c) 2003, PostgreSQL Global Development Group
+ * Copyright (c) 2003-2004, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/util/UnixCrypt.java,v 1.5 2003/11/29 19:52:11 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/UnixCrypt.java,v 1.6 2004/11/07 22:17:15 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.util;
 
-/*
+/**
+ * Contains static methods to encrypt and compare
+ * passwords with Unix encrypted passwords.
  * <P>See <A HREF="http://www.zeh.com/local/jfd/crypt.html">
  * John Dumas's Java Crypt page</A> for the original source.</P>
  *

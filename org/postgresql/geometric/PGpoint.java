@@ -1,9 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * Copyright (c) 2003, PostgreSQL Global Development Group
+ * Copyright (c) 2003-2004, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpoint.java,v 1.10 2004/10/10 15:39:39 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpoint.java,v 1.11 2004/11/07 22:15:53 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */

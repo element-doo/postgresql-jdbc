@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/optional/SimpleDataSourceTest.java,v 1.6 2004/11/07 22:17:06 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.jdbc2.optional;
 
 import org.postgresql.test.TestUtil;
@@ -8,7 +17,6 @@ import org.postgresql.jdbc2.optional.SimpleDataSource;
  * configuration logic.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.5 $
  */
 public class SimpleDataSourceTest extends BaseDataSourceTest
 {

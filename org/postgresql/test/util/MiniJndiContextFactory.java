@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+ *
+ * Copyright (c) 2004, PostgreSQL Global Development Group
+ *
+ * IDENTIFICATION
+ *	  $PostgreSQL: pgjdbc/org/postgresql/test/util/MiniJndiContextFactory.java,v 1.4 2004/11/07 22:17:09 jurka Exp $
+ *
+ *-------------------------------------------------------------------------
+ */
 package org.postgresql.test.util;
 
 import java.util.*;
@@ -10,7 +19,6 @@ import javax.naming.spi.InitialContextFactory;
  * pools.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.3 $
  */
 public class MiniJndiContextFactory implements InitialContextFactory
 {
