@@ -6,7 +6,7 @@
 
   This file now requires Ant 1.4.1.  2002-04-18
 
-  $PostgreSQL: pgjdbc/build.xml,v 1.56 2004/10/18 10:13:56 jurka Exp $
+  $PostgreSQL: pgjdbc/build.xml,v 1.57 2004/10/28 22:26:38 oliver Exp $
 
 -->
 
@@ -161,7 +161,7 @@
        <include name="${package}/jdbc3/Jdbc3PoolingDataSource.java" if="jdbc3any" />
        <include name="${package}/jdbc3/Jdbc3SimpleDataSource.java" if="jdbc3any" />
 
-       <include name="${package}/ds/**.java" if="datasource" />
+       <include name="${package}/ds/**/*.java" if="datasource" />
 
     </javac>
   </target>
