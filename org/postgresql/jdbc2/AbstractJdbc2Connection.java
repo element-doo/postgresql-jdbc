@@ -14,7 +14,7 @@ import org.postgresql.util.PGobject;
 import org.postgresql.util.PSQLException;
 
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.16 2004/09/20 08:36:50 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.17 2004/10/09 06:02:58 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
  */
@@ -871,7 +871,7 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
 	public int getPGType(String typeName) throws SQLException
 	{
 		if (typeName == null)
-			return 0;
+			return Oid.INVALID;
 
 		synchronized (this) {
 			Integer oidValue = (Integer) typeOidCache.get(typeName);
@@ -879,7 +879,7 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
 				return oidValue.intValue();
 
 			// it's not in the cache, so perform a query, and add the result to the cache
-			int oid = 0;
+			int oid = Oid.INVALID;
 
 			PreparedStatement query;
 			if (haveMinimumServerVersion("7.3"))
@@ -912,7 +912,7 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
 	 */
 	public String getPGType(int oid) throws SQLException
 	{
-		if (oid == 0)
+		if (oid == Oid.INVALID)
 			return null;
 
 		synchronized (this) {

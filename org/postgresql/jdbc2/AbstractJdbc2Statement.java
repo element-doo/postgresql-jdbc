@@ -13,7 +13,7 @@ import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGobject;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.31 2004/09/21 01:14:06 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.32 2004/10/09 06:02:58 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -2443,7 +2443,20 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 	public void setArray(int i, java.sql.Array x) throws SQLException
 	{
 		checkClosed();
-		setString(i, x.toString());
+
+		// This only works for Array implementations that return a valid array
+		// literal from Array.toString(), such as the implementation we return
+		// from ResultSet.getArray(). Eventually we need a proper implementation
+		// here that works for any Array implementation.
+
+		// Use a typename that is "_" plus the base type; this matches how the
+		// backend looks for array types.
+		String typename = "_" + x.getBaseTypeName();
+		int oid = connection.getPGType(typename);
+		if (oid == Oid.INVALID)
+			throw new PSQLException("postgresql.prep.typenotfound", PSQLState.INVALID_PARAMETER_TYPE, typename);
+
+		setString(i, x.toString(), oid);
 	}
 
 	public void setBlob(int i, Blob x) throws SQLException
