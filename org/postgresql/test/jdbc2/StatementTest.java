@@ -6,7 +6,7 @@ import junit.framework.*;
 import java.sql.*;
 import java.util.HashMap;
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.2 2004/02/24 12:33:04 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.3 2004/04/10 11:14:59 jurka Exp $
  *
  * Test for getObject
  */
@@ -61,5 +61,22 @@ public class StatementTest extends TestCase
      stmt.close();
      stmt.close();
   }
+
+	public void testUpdateCount() throws SQLException
+	{
+		Statement stmt = con.createStatement();
+		int count;
+
+		count = stmt.executeUpdate("INSERT INTO test_statement VALUES (3)");
+		assertEquals(1,count);
+		count = stmt.executeUpdate("INSERT INTO test_statement VALUES (3)");
+		assertEquals(1,count);
+
+		count = stmt.executeUpdate("UPDATE test_statement SET i=4");
+		assertEquals(2,count);
+
+		count = stmt.executeUpdate("CREATE TEMP TABLE another_table (a int)");
+		assertEquals(0,count);
+	}
 
 }

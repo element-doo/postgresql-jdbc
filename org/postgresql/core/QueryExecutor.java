@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.32 2004/03/29 19:17:11 blind Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.33 2004/04/10 11:14:59 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -424,6 +424,8 @@ public class QueryExecutor
 			if (status.startsWith("INSERT") || status.startsWith("UPDATE") || status.startsWith("DELETE") || status.startsWith("MOVE"))
 			{
 				update_count = Integer.parseInt(status.substring(1 + status.lastIndexOf(' ')));
+			} else {
+				update_count = 0;
 			}
 			if (status.startsWith("INSERT"))
 			{
@@ -450,6 +452,8 @@ public class QueryExecutor
 			if (status.startsWith("INSERT") || status.startsWith("UPDATE") || status.startsWith("DELETE") || status.startsWith("MOVE"))
 			{
 				update_count = Integer.parseInt(status.substring(1 + status.lastIndexOf(' ')));
+			} else {
+				update_count = 0;
 			}
 			if (status.startsWith("INSERT"))
 			{
