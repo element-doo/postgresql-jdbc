@@ -7,7 +7,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/PGStream.java,v 1.7 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/PGStream.java,v 1.8 2004/09/20 08:36:48 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -23,8 +23,6 @@ import java.io.EOFException;
 import java.io.Writer;
 import java.net.Socket;
 import java.sql.*;
-import org.postgresql.util.PSQLException;
-import org.postgresql.util.PSQLState;
 
 /**
  * Wrapper around the raw connection to the server that implements some basic

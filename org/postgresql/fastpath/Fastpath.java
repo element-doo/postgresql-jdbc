@@ -3,15 +3,13 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/Fastpath.java,v 1.24 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/Fastpath.java,v 1.25 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.fastpath;
 
-import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.SQLWarning;
 import java.sql.ResultSet;
 import java.util.Hashtable;
 import org.postgresql.Driver;
@@ -19,9 +17,7 @@ import org.postgresql.core.BaseConnection;
 import org.postgresql.core.QueryExecutor;
 import org.postgresql.core.ParameterList;
 import org.postgresql.util.PSQLException;
-import org.postgresql.util.ServerErrorMessage;
 import org.postgresql.util.PSQLState;
-import org.postgresql.util.PSQLWarning;
 
 /**
  * This class implements the Fastpath api.

@@ -7,7 +7,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.4 2004/09/13 12:19:00 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.5 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -16,15 +16,12 @@ package org.postgresql.core.v3;
 import org.postgresql.core.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Vector;
 import java.util.HashMap;
 
 import java.lang.ref.*;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Writer;
 import java.sql.*;
 import org.postgresql.Driver;
 import org.postgresql.util.PSQLException;

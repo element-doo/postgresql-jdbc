@@ -3,13 +3,12 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/FastpathArg.java,v 1.8 2004/06/29 06:43:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/FastpathArg.java,v 1.9 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.fastpath;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import org.postgresql.core.ParameterList;
 

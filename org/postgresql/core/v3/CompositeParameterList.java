@@ -6,7 +6,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/CompositeParameterList.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/CompositeParameterList.java,v 1.2 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -18,7 +18,6 @@ import org.postgresql.util.PSQLState;
 
 import java.sql.SQLException;
 import java.io.InputStream;
-import java.io.IOException;
 
 /**
  * Parameter list for V3 query strings that contain multiple statements.

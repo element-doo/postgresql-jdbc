@@ -6,7 +6,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleParameterList.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleParameterList.java,v 1.2 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -14,7 +14,6 @@ package org.postgresql.core.v3;
 
 import java.io.InputStream;
 import java.io.IOException;
-import java.io.EOFException;
 import java.sql.SQLException;
 import java.util.Arrays;
 

@@ -7,7 +7,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v2/QueryExecutorImpl.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v2/QueryExecutorImpl.java,v 1.2 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -15,16 +15,13 @@ package org.postgresql.core.v2;
 
 import java.util.Vector;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Writer;
 import java.sql.*;
 
 import org.postgresql.Driver;
 import org.postgresql.core.*;
 import org.postgresql.util.PSQLException;
-import org.postgresql.util.PSQLWarning;
 import org.postgresql.util.PSQLState;
-import org.postgresql.util.ServerErrorMessage;
 
 /**
  * QueryExecutor implementation for the V2 protocol.

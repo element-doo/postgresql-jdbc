@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/TimestampUtils.java,v 1.1 2004/07/16 06:14:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/jdbc2/TimestampUtils.java,v 1.2 2004/09/20 08:36:50 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -154,7 +154,6 @@ public class TimestampUtils {
 					df = tsFormat;
 				}
 			} else {
-                int i;
 				if (slen == 8 && s.equals("infinity"))
 					//java doesn't have a concept of postgres's infinity
 					//so set to an arbitrary future date

@@ -6,13 +6,12 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleQuery.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleQuery.java,v 1.2 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.core.v3;
 
-import org.postgresql.Driver;
 import org.postgresql.core.*;
 import java.lang.ref.PhantomReference;
 

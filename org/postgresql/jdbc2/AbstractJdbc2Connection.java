@@ -12,10 +12,9 @@ import org.postgresql.largeobject.LargeObjectManager;
 import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.PSQLException;
-import org.postgresql.util.PSQLWarning;
 
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.15 2004/08/04 23:59:29 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.16 2004/09/20 08:36:50 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
  */

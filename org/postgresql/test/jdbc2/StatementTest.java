@@ -1,12 +1,10 @@
 package org.postgresql.test.jdbc2;
 
 import org.postgresql.test.TestUtil;
-import java.util.Calendar;
 import junit.framework.*;
 import java.sql.*;
-import java.util.HashMap;
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.6 2004/09/13 12:19:00 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.7 2004/09/20 08:36:51 jurka Exp $
  *
  * Test for getObject
  */
@@ -49,9 +47,7 @@ public class StatementTest extends TestCase
           this.fail( "statements should not be re-used after close" );
       }
       catch (SQLException ex)
-      {
-
-      }
+      { }
   }
 
   /**

@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.9 2004/07/27 05:19:27 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.10 2004/09/20 08:36:48 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -14,7 +14,6 @@ package org.postgresql.core;
 
 import java.sql.*;
 import org.postgresql.PGConnection;
-import org.postgresql.PGNotification;
 
 /**
  * Driver-internal connection interface. Application code should not use

@@ -6,7 +6,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/ParameterList.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/ParameterList.java,v 1.2 2004/09/20 08:36:48 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -14,7 +14,6 @@ package org.postgresql.core;
 
 import java.sql.SQLException;
 import java.io.InputStream;
-import java.io.IOException;
 
 /**
  * Abstraction of a list of parameters to be substituted into a Query.

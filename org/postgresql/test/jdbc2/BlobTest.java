@@ -8,7 +8,7 @@ import java.sql.*;
 import org.postgresql.largeobject.*;
 
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/BlobTest.java,v 1.10 2003/11/29 22:41:23 pgsql Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/BlobTest.java,v 1.11 2004/09/20 08:36:50 jurka Exp $
  *
  * Some simple tests based on problems reported by users. Hopefully these will
  * help prevent previous problems from re-occuring ;-)
@@ -43,51 +43,37 @@ public class BlobTest extends TestCase
 	/*
 	 * Tests one method of uploading a blob to the database
 	 */
-	public void testUploadBlob_LOOP()
+	public void testUploadBlob_LOOP() throws Exception
 	{
-		try
-		{
-			con.setAutoCommit(false);
-			assertTrue(!con.getAutoCommit());
+		con.setAutoCommit(false);
+		assertTrue(!con.getAutoCommit());
 
-			assertTrue(uploadFile("build.xml", LOOP) > 0);
+		assertTrue(uploadFile("build.xml", LOOP) > 0);
 
-			// Now compare the blob & the file. Note this actually tests the
-			// InputStream implementation!
-			assertTrue(compareBlobsLOAPI());
-			assertTrue(compareBlobs());
-			assertTrue(compareClobs());
+		// Now compare the blob & the file. Note this actually tests the
+		// InputStream implementation!
+		assertTrue(compareBlobsLOAPI());
+		assertTrue(compareBlobs());
+		assertTrue(compareClobs());
 
-			con.setAutoCommit(true);
-		}
-		catch (Exception ex)
-		{
-			fail(ex.getMessage());
-		}
+		con.setAutoCommit(true);
 	}
 
 	/*
 	 * Tests one method of uploading a blob to the database
 	 */
-	public void testUploadBlob_NATIVE()
+	public void testUploadBlob_NATIVE() throws Exception
 	{
-		try
-		{
-			con.setAutoCommit(false);
-			assertTrue(!con.getAutoCommit());
+		con.setAutoCommit(false);
+		assertTrue(!con.getAutoCommit());
 
-			assertTrue(uploadFile("build.xml", NATIVE_STREAM) > 0);
+		assertTrue(uploadFile("build.xml", NATIVE_STREAM) > 0);
 
-			// Now compare the blob & the file. Note this actually tests the
-			// InputStream implementation!
-			assertTrue(compareBlobs());
+		// Now compare the blob & the file. Note this actually tests the
+		// InputStream implementation!
+		assertTrue(compareBlobs());
 
-			con.setAutoCommit(true);
-		}
-		catch (Exception ex)
-		{
-			fail(ex.getMessage());
-		}
+		con.setAutoCommit(true);
 	}
 
 	/*

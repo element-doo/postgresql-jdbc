@@ -6,14 +6,13 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/util/StreamWrapper.java,v 1.1 2004/06/29 06:43:29 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/StreamWrapper.java,v 1.2 2004/09/20 08:36:51 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.util;
 
 import java.io.InputStream;
-import java.io.IOException;
 
 /**
  * Wrapper around a length-limited InputStream.

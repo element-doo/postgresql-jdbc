@@ -1,9 +1,7 @@
 package org.postgresql.test.jdbc3;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import org.postgresql.test.jdbc2.optional.PoolingDataSourceTest;
 import org.postgresql.test.TestUtil;
 import org.postgresql.jdbc3.Jdbc3PoolingDataSource;
@@ -13,7 +11,7 @@ import org.postgresql.jdbc2.optional.PoolingDataSource;
  * Minimal tests for JDBC3 pooling DataSource.  Needs many more.
  *
  * @author Aaron Mulder (ammulder@chariotsolutions.com)
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Jdbc3PoolingDataSourceTest extends PoolingDataSourceTest
 {
@@ -41,7 +39,6 @@ public class Jdbc3PoolingDataSourceTest extends PoolingDataSourceTest
 
     private void configureDataSource(PoolingDataSource source)
     {
-        String db = TestUtil.getURL();
         source.setServerName(TestUtil.getServer());
         source.setPortNumber(TestUtil.getPort());
         source.setDatabaseName(TestUtil.getDatabase());
@@ -109,37 +106,26 @@ public class Jdbc3PoolingDataSourceTest extends PoolingDataSourceTest
      * Test that JDBC 2 and JDBC 3 DSs come from different buckets
      * as far as fetching from JNDI
      */
-    public void testDifferentImplJndi()
+    public void testDifferentImplJndi() throws Exception
     {
         initializeDataSource();
         PoolingDataSource pds = new PoolingDataSource();
         try
         {
             configureDataSource(pds);
-            try
-            {
-                Connection j3c = getDataSourceConnection();
-                Connection j2c = pds.getConnection();
-                j2c.close();
-                j3c.close();
-                InitialContext ctx = getInitialContext();
-                ctx.bind("JDBC2", pds);
-                ctx.bind("JDBC3", bds);
-                pds = (PoolingDataSource) ctx.lookup("JDBC2");
-                bds = (Jdbc3PoolingDataSource) ctx.lookup("JDBC3");
-                j2c = pds.getConnection();
-                j3c = bds.getConnection();
-                j2c.close();
-                j3c.close();
-            }
-            catch (SQLException e)
-            {
-                fail(e.getMessage());
-            }
-            catch (NamingException e)
-            {
-                fail(e.getMessage());
-            }
+            Connection j3c = getDataSourceConnection();
+            Connection j2c = pds.getConnection();
+            j2c.close();
+            j3c.close();
+            InitialContext ctx = getInitialContext();
+            ctx.bind("JDBC2", pds);
+            ctx.bind("JDBC3", bds);
+            pds = (PoolingDataSource) ctx.lookup("JDBC2");
+            bds = (Jdbc3PoolingDataSource) ctx.lookup("JDBC3");
+            j2c = pds.getConnection();
+            j3c = bds.getConnection();
+            j2c.close();
+            j3c.close();
         }
         finally
         {

@@ -7,14 +7,13 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v2/ConnectionFactoryImpl.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v2/ConnectionFactoryImpl.java,v 1.2 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.core.v2;
 
 import java.util.Vector;
-import java.util.HashMap;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
@@ -22,7 +21,6 @@ import java.sql.*;
 import java.io.IOException;
 import java.net.ConnectException;
 
-import org.postgresql.PGNotification;
 import org.postgresql.Driver;
 import org.postgresql.core.*;
 import org.postgresql.util.PSQLException;

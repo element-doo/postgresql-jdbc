@@ -6,7 +6,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/ProtocolConnectionImpl.java,v 1.1 2004/06/29 06:43:25 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/ProtocolConnectionImpl.java,v 1.2 2004/09/20 08:36:49 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -15,13 +15,10 @@ package org.postgresql.core.v3;
 import org.postgresql.PGNotification;
 import org.postgresql.Driver;
 import org.postgresql.core.*;
-import org.postgresql.util.PSQLException;
-import org.postgresql.util.PSQLState;
 
 import java.sql.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.net.ConnectException;
 
 /**
  * ProtocolConnection implementation for the V3 protocol.

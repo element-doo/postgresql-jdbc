@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/Encoding.java,v 1.16 2004/07/17 07:39:41 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/Encoding.java,v 1.17 2004/09/20 08:36:48 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -20,9 +20,6 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.Vector;
-import org.postgresql.util.PSQLException;
-import org.postgresql.util.PSQLState;
 
 /**
  * Representation of a particular character encoding.
