@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $Header: /cvsroot/jdbc/pgjdbc/org/postgresql/core/BaseStatement.java,v 1.6 2003/10/29 02:39:09 davec Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.7 2003/11/29 19:52:09 pgsql Exp $
  *
  *-------------------------------------------------------------------------
  */

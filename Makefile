@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2001, PostgreSQL Global Development Group
 #
-# $Header: /cvsroot/jdbc/pgjdbc/Attic/Makefile,v 1.38 2003/02/12 06:13:04 barry Exp $
+# $PostgreSQL: pgjdbc/Makefile,v 1.39 2003/11/29 19:52:09 pgsql Exp $
 #
 #-------------------------------------------------------------------------
 
