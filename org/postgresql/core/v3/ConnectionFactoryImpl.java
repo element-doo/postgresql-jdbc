@@ -7,7 +7,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/ConnectionFactoryImpl.java,v 1.3 2004/10/10 15:39:37 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/ConnectionFactoryImpl.java,v 1.4 2004/10/17 11:55:17 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -78,7 +78,7 @@ public class ConnectionFactoryImpl extends ConnectionFactory {
 
 			// Construct and send an ssl startup packet if requested.
 			if (trySSL)
-				newStream = enableSSL(newStream, requireSSL);
+				newStream = enableSSL(newStream, requireSSL, info);
 
 			// Construct and send a startup packet.
 			String[][] params = {
@@ -126,7 +126,7 @@ public class ConnectionFactoryImpl extends ConnectionFactory {
 		}
 	}
 
-	private PGStream enableSSL(PGStream pgStream, boolean requireSSL) throws IOException, SQLException {
+	private PGStream enableSSL(PGStream pgStream, boolean requireSSL, Properties info) throws IOException, SQLException {
 		if (Driver.logDebug)
 			Driver.debug(" FE=> SSLRequest");
 
@@ -166,7 +166,7 @@ public class ConnectionFactoryImpl extends ConnectionFactory {
 				Driver.debug(" <=BE SSLOk");
 
 			// Server supports ssl
-			Driver.makeSSL(pgStream);
+			Driver.makeSSL(pgStream,info);
 			return pgStream;
 
 		default:
