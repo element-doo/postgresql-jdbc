@@ -3,12 +3,13 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGlseg.java,v 1.8 2004/06/29 06:43:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGlseg.java,v 1.9 2004/10/10 15:39:39 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.geometric;
 
+import org.postgresql.util.GT;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.PGtokenizer;
 import org.postgresql.util.PSQLException;
@@ -75,7 +76,7 @@ public class PGlseg extends PGobject implements Serializable, Cloneable
 	{
 		PGtokenizer t = new PGtokenizer(PGtokenizer.removeBox(s), ',');
 		if (t.getSize() != 2)
-			throw new PSQLException("postgresql.geo.lseg", PSQLState.DATA_TYPE_MISMATCH);
+			throw new PSQLException(GT.tr("Conversion of lseg failed: {0}.", s), PSQLState.DATA_TYPE_MISMATCH);
 
 		point[0] = new PGpoint(t.getToken(0));
 		point[1] = new PGpoint(t.getToken(1));

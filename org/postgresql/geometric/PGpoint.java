@@ -3,12 +3,13 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpoint.java,v 1.9 2004/06/29 06:43:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpoint.java,v 1.10 2004/10/10 15:39:39 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.geometric;
 
+import org.postgresql.util.GT;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.PGtokenizer;
 import org.postgresql.util.PSQLException;
@@ -81,7 +82,7 @@ public class PGpoint extends PGobject implements Serializable, Cloneable
 		}
 		catch (NumberFormatException e)
 		{
-			throw new PSQLException("postgresql.geo.point", PSQLState.DATA_TYPE_MISMATCH, e.toString());
+			throw new PSQLException(GT.tr("Conversion of point failed: {0}.",s), PSQLState.DATA_TYPE_MISMATCH, e);
 		}
 	}
 

@@ -6,7 +6,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/ConnectionFactory.java,v 1.2 2004/09/20 08:36:48 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/ConnectionFactory.java,v 1.3 2004/10/10 15:39:33 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -16,6 +16,7 @@ import java.util.Properties;
 import java.sql.SQLException;
 
 import org.postgresql.util.PSQLException;
+import org.postgresql.util.GT;
 
 /**
  * Handles protocol-specific connection setup.
@@ -66,7 +67,7 @@ public abstract class ConnectionFactory {
 				return connection;
 		}
 
-		throw new PSQLException("postgresql.con.noprotocol");
+		throw new PSQLException(GT.tr("No connection was able to be made for requested protocol {0}.", protoName));
 	}
 
 	/**

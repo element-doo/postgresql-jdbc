@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/util/PGmoney.java,v 1.7 2003/11/29 19:52:11 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/util/PGmoney.java,v 1.8 2004/10/10 15:39:46 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -72,7 +72,7 @@ public class PGmoney extends PGobject implements Serializable, Cloneable
 		}
 		catch (NumberFormatException e)
 		{
-			throw new PSQLException("postgresql.money", PSQLState.NUMERIC_CONSTANT_OUT_OF_RANGE, e);
+			throw new PSQLException(GT.tr("Conversion of money failed."), PSQLState.NUMERIC_CONSTANT_OUT_OF_RANGE, e);
 		}
 	}
 

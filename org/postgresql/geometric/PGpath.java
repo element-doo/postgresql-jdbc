@@ -3,12 +3,13 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpath.java,v 1.9 2004/06/29 06:43:26 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpath.java,v 1.10 2004/10/10 15:39:39 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
 package org.postgresql.geometric;
 
+import org.postgresql.util.GT;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.PGtokenizer;
 import org.postgresql.util.PSQLException;
@@ -79,7 +80,7 @@ public class PGpath extends PGobject implements Serializable, Cloneable
 			s = PGtokenizer.removePara(s);
 		}
 		else
-			throw new PSQLException("postgresql.geo.path", PSQLState.DATA_TYPE_MISMATCH);
+			throw new PSQLException(GT.tr("Cannot tell if path is open or closed: {0}.", s),  PSQLState.DATA_TYPE_MISMATCH);
 
 		PGtokenizer t = new PGtokenizer(s, ',');
 		int npoints = t.getSize();

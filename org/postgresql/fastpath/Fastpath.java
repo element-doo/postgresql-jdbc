@@ -3,7 +3,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/Fastpath.java,v 1.25 2004/09/20 08:36:49 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/Fastpath.java,v 1.26 2004/10/10 15:39:38 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -18,6 +18,7 @@ import org.postgresql.core.QueryExecutor;
 import org.postgresql.core.ParameterList;
 import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
+import org.postgresql.util.GT;
 
 /**
  * This class implements the Fastpath api.
@@ -70,7 +71,7 @@ public class Fastpath
 			return returnValue;
 
 		if (returnValue.length != 4)
-			throw new PSQLException("postgresql.fp.expint");
+			throw new PSQLException(GT.tr("Fastpath call {0} - No result was returned and we expected an integer.", new Integer(fnId)));
 
 		return new Integer((returnValue[3] & 255) |
 						   ((returnValue[2] & 255) << 8) |
@@ -116,7 +117,7 @@ public class Fastpath
 	{
 		Integer i = (Integer)fastpath(name, true, args);
 		if (i == null)
-			throw new PSQLException("postgresql.fp.expint", null, name);
+			throw new PSQLException(GT.tr("Fastpath call {0} - No result was returned and we expected an integer.", name));
 		return i.intValue();
 	}
 
@@ -210,7 +211,7 @@ public class Fastpath
 		// so, until we know we can do this (needs testing, on the TODO list)
 		// for now, we throw the exception and do no lookups.
 		if (id == null)
-			throw new PSQLException("postgresql.fp.unknown", PSQLState.UNEXPECTED_ERROR, name);
+			throw new PSQLException(GT.tr("The fastpath function {0} is unknown.", name), PSQLState.UNEXPECTED_ERROR);
 
 		return id.intValue();
 	}
