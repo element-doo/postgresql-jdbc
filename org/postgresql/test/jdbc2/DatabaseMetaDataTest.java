@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * PS: Do you know how difficult it is to type on a train? ;-)
  *
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.26 2004/08/04 23:59:38 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.27 2004/08/11 05:41:12 jurka Exp $
  */
 
 public class DatabaseMetaDataTest extends TestCase
@@ -522,6 +522,16 @@ public class DatabaseMetaDataTest extends TestCase
 			assertTrue(!foundPublic);
 			assertTrue(!foundPGCatalog);
 		}
+	}
+
+	public void testSearchStringEscape() throws Exception {
+		DatabaseMetaData dbmd = con.getMetaData();
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT 'a' LIKE '" + dbmd.getSearchStringEscape() + "_'");
+		assertTrue (rs.next());
+		assertTrue(!rs.getBoolean(1));
+		rs.close();
+		stmt.close();
 	}
 
     public void testGetUDTQualified() throws Exception
