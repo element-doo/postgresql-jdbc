@@ -14,7 +14,7 @@ import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.GT;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.35 2004/10/14 09:28:52 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.36 2004/10/18 03:45:25 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -1184,6 +1184,9 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 			setNull(parameterIndex, Types.VARCHAR);
 				return;
 		}
+		if (length < 0)
+			throw new PSQLException(GT.tr("Invalid stream length {0}.", new Integer(length)));
+
 
 		//Version 7.2 supports AsciiStream for all PG text types (char, varchar, text)
 		//As the spec/javadoc for this method indicate this is to be used for
@@ -1303,6 +1306,9 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 			setNull(parameterIndex, Types.VARBINARY);
 			return;
 		}
+
+		if (length < 0)
+			throw new PSQLException(GT.tr("Invalid stream length {0}.", new Integer(length)));
 
 		if (connection.haveMinimumCompatibleVersion("7.2"))
 		{
@@ -2514,6 +2520,9 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 	public void setCharacterStream(int i, java.io.Reader x, int length) throws SQLException
 	{
 		checkClosed();
+		if (length < 0)
+			throw new PSQLException(GT.tr("Invalid stream length {0}.", new Integer(length)));
+
 		if (connection.haveMinimumCompatibleVersion("7.2"))
 		{
 			//Version 7.2 supports CharacterStream for for the PG text types
