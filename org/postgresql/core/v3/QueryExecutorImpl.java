@@ -7,7 +7,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.2 2004/07/09 23:58:20 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.3 2004/07/29 19:15:25 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -725,7 +725,7 @@ public class QueryExecutorImpl implements QueryExecutor {
 			rows = 1;             // We're discarding any results anyway, so limit data transfer to a minimum
 		} else if (!usePortal) {
 			rows = maxRows;       // Not using a portal -- fetchSize is irrelevant
-		} else if (fetchSize > maxRows) {
+		} else if (maxRows != 0 && fetchSize > maxRows) {
 			rows = maxRows;       // fetchSize > maxRows, use maxRows (nb: fetchSize cannot be 0 if usePortal == true)
 		} else {
 			rows = fetchSize;     // maxRows > fetchSize
