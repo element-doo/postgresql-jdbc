@@ -1,13 +1,9 @@
 /*-------------------------------------------------------------------------
  *
- * FastpathArg.java
- *     Each fastpath call requires an array of arguments, the number and type
- *     dependent on the function being called.
- *
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/FastpathArg.java,v 1.6 2003/11/29 19:52:09 pgsql Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/fastpath/FastpathArg.java,v 1.7 2004/06/07 21:52:45 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -15,24 +11,28 @@ package org.postgresql.fastpath;
 
 import java.io.IOException;
 
+/**
+ *     Each fastpath call requires an array of arguments, the number and type
+ *     dependent on the function being called.
+ */
 public class FastpathArg
 {
-	/*
+	/**
 	 * Type of argument, true=integer, false=byte[]
 	 */
 	public boolean type;
 
-	/*
+	/**
 	 * Integer value if type=true
 	 */
 	public int value;
 
-	/*
+	/**
 	 * Byte value if type=false;
 	 */
 	public byte[] bytes;
 
-	/*
+	/**
 	 * Constructs an argument that consists of an integer value
 	 * @param value int value to set
 	 */
@@ -42,7 +42,7 @@ public class FastpathArg
 		this.value = value;
 	}
 
-	/*
+	/**
 	 * Constructs an argument that consists of an array of bytes
 	 * @param bytes array to store
 	 */
@@ -52,7 +52,7 @@ public class FastpathArg
 		this.bytes = bytes;
 	}
 
-	/*
+	/**
 	 * Constructs an argument that consists of part of a byte array
 	 * @param buf source array
 	 * @param off offset within array
@@ -65,7 +65,7 @@ public class FastpathArg
 		System.arraycopy(buf, off, bytes, 0, len);
 	}
 
-	/*
+	/**
 	 * Constructs an argument that consists of a String.
 	 * @param s String to store
 	 */
@@ -74,7 +74,7 @@ public class FastpathArg
 		this(s.getBytes());
 	}
 
-	/*
+	/**
 	 * This sends this argument down the network stream.
 	 *
 	 * <p>The stream sent consists of the length.int4 then the contents.
