@@ -7,7 +7,7 @@ import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 import org.postgresql.util.GT;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Connection.java,v 1.9 2004/10/10 15:39:42 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Connection.java,v 1.10 2004/10/14 09:28:52 jurka Exp $
  * This class defines methods of the jdbc3 specification.  This class extends
  * org.postgresql.jdbc2.AbstractJdbc2Connection which provides the jdbc2
  * methods.  The real Connection class (for jdbc3) is org.postgresql.jdbc3.Jdbc3Connection
@@ -79,7 +79,7 @@ public abstract class AbstractJdbc3Connection extends org.postgresql.jdbc2.Abstr
 		if (!haveMinimumServerVersion("8.0"))
 			throw new PSQLException(GT.tr("Server versions prior to 8.0 do not support savepoints."), PSQLState.NOT_IMPLEMENTED);
 		if (getAutoCommit())
-			throw new PSQLException(GT.tr("Cannot establish a savpoint int auto-commit mode."));
+			throw new PSQLException(GT.tr("Cannot establish a savepoint in auto-commit mode."));
 
 		PSQLSavepoint savepoint = new PSQLSavepoint(savepointId++);
 
@@ -109,7 +109,7 @@ public abstract class AbstractJdbc3Connection extends org.postgresql.jdbc2.Abstr
 		if (!haveMinimumServerVersion("8.0"))
 			throw new PSQLException(GT.tr("Server versions prior to 8.0 do not support savepoints."), PSQLState.NOT_IMPLEMENTED);
 		if (getAutoCommit())
-			throw new PSQLException(GT.tr("Cannot establish a savpoint int auto-commit mode."));
+			throw new PSQLException(GT.tr("Cannot establish a savepoint in auto-commit mode."));
 
 		PSQLSavepoint savepoint = new PSQLSavepoint(name);
 

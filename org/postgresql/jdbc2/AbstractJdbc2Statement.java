@@ -14,7 +14,7 @@ import org.postgresql.util.PSQLState;
 import org.postgresql.util.PGobject;
 import org.postgresql.util.GT;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.34 2004/10/12 05:51:29 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.35 2004/10/14 09:28:52 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Statement class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Statement
  */
@@ -1212,7 +1212,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 		}
 		catch (UnsupportedEncodingException l_uee)
 		{
-			throw new PSQLException(GT.tr("The JVM claism not to support the {0} encoding.", encoding), PSQLState.UNEXPECTED_ERROR, l_uee);
+			throw new PSQLException(GT.tr("The JVM claims not to support the {0} encoding.", encoding), PSQLState.UNEXPECTED_ERROR, l_uee);
 		}
 		catch (IOException l_ioe)
 		{
