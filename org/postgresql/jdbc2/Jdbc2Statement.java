@@ -7,7 +7,7 @@ import org.postgresql.PGRefCursorResultSet;
 import org.postgresql.core.BaseResultSet;
 import org.postgresql.core.Field;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2Statement.java,v 1.8 2004/03/29 19:17:11 blind Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2Statement.java,v 1.9 2004/06/08 00:18:20 jurka Exp $
  * This class implements the java.sql.Statement interface for JDBC2.
  * However most of the implementation is really done in
  * org.postgresql.jdbc2.AbstractJdbc2Statement or one of it's parents
@@ -15,7 +15,7 @@ import org.postgresql.core.Field;
 public class Jdbc2Statement extends org.postgresql.jdbc2.AbstractJdbc2Statement implements java.sql.Statement
 {
 
-	public Jdbc2Statement (Jdbc2Connection c)
+	public Jdbc2Statement (Jdbc2Connection c) throws SQLException
 	{
 		super(c);
 	}
