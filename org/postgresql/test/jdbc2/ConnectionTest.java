@@ -10,7 +10,7 @@ import java.sql.*;
  *
  * PS: Do you know how difficult it is to type on a train? ;-)
  *
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ConnectionTest.java,v 1.12 2004/02/16 11:35:23 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ConnectionTest.java,v 1.13 2004/02/24 12:32:58 jurka Exp $
  */
 
 public class ConnectionTest extends TestCase
@@ -346,5 +346,15 @@ public class ConnectionTest extends TestCase
 		{
 			assertTrue(ex.getMessage(), false);
 		}
+	}
+
+	/**
+	 * Closing a Connection more than once is not an error.
+	 */
+	public void testDoubleClose() throws SQLException
+	{
+		Connection con = TestUtil.openDB();
+		con.close();
+		con.close();
 	}
 }

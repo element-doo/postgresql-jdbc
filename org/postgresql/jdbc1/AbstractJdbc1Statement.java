@@ -26,7 +26,7 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Vector;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.49 2004/02/16 11:35:21 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.50 2004/02/24 12:32:47 jurka Exp $
  * This class defines methods of the jdbc1 specification.  This class is
  * extended by org.postgresql.jdbc2.AbstractJdbc2Statement which adds the jdbc2
  * methods.  The real Statement class (for jdbc1) is org.postgresql.jdbc1.Jdbc1Statement
@@ -816,6 +816,10 @@ public abstract class AbstractJdbc1Statement implements BaseStatement
 	 */
 	public void close() throws SQLException
 	{
+		// closing an already closed Statement is a no-op.
+		if (isClosed)
+			return;
+
 		// Force the ResultSet to close
 		java.sql.ResultSet rs = getResultSet();
 		if (rs != null)
@@ -825,7 +829,7 @@ public abstract class AbstractJdbc1Statement implements BaseStatement
 
 		// Disasociate it from us (For Garbage Collection)
 		result = null;
-        isClosed=true;
+		isClosed=true;
 	}
 
  	/**

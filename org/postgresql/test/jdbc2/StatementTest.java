@@ -6,7 +6,7 @@ import junit.framework.*;
 import java.sql.*;
 import java.util.HashMap;
 /*
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.1 2004/02/12 19:09:47 davec Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/StatementTest.java,v 1.2 2004/02/24 12:33:04 jurka Exp $
  *
  * Test for getObject
  */
@@ -50,6 +50,16 @@ public class StatementTest extends TestCase
       {
 
       }
+  }
+
+  /**
+   * Closing a Statement twice is not an error.
+   */
+  public void testDoubleClose() throws SQLException
+  {
+     Statement stmt = con.createStatement();
+     stmt.close();
+     stmt.close();
   }
 
 }
