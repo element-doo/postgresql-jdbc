@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.8 2004/01/13 03:07:09 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/BaseStatement.java,v 1.9 2004/01/15 08:50:39 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -35,7 +35,6 @@ public interface BaseStatement extends org.postgresql.PGStatement
 	public int getFetchSize();
  	public int getMaxFieldSize() throws SQLException;
 	public int getMaxRows() throws SQLException;
-	public int getResultSetConcurrency() throws SQLException;
 	public String getFetchingCursorName();
 	public SQLWarning getWarnings() throws SQLException;
  	public void setMaxFieldSize(int max) throws SQLException;

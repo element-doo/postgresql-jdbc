@@ -7,7 +7,7 @@ import java.sql.SQLData;
 import java.sql.SQLException;
 import java.sql.Types;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.7 2003/11/29 19:52:10 pgsql Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.8 2004/01/15 08:50:39 jurka Exp $
  * This class defines methods of the jdbc2 specification.  This class extends
  * org.postgresql.jdbc1.AbstractJdbc1Connection which provides the jdbc1
  * methods.  The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
@@ -21,23 +21,22 @@ public abstract class AbstractJdbc2Connection extends org.postgresql.jdbc1.Abstr
  
 	public java.sql.Statement createStatement() throws SQLException
 	{
-		// The spec says default of TYPE_FORWARD_ONLY but everyone is used to
-		// using TYPE_SCROLL_INSENSITIVE
-		return createStatement(java.sql.ResultSet.TYPE_SCROLL_INSENSITIVE, java.sql.ResultSet.CONCUR_READ_ONLY);
+		// We now follow the spec and default to TYPE_FORWARD_ONLY.
+		return createStatement(java.sql.ResultSet.TYPE_FORWARD_ONLY, java.sql.ResultSet.CONCUR_READ_ONLY);
 	}
 
 	public abstract java.sql.Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException;
 
 	public java.sql.PreparedStatement prepareStatement(String sql) throws SQLException
 	{
-		return prepareStatement(sql, java.sql.ResultSet.TYPE_SCROLL_INSENSITIVE, java.sql.ResultSet.CONCUR_READ_ONLY);
+		return prepareStatement(sql, java.sql.ResultSet.TYPE_FORWARD_ONLY, java.sql.ResultSet.CONCUR_READ_ONLY);
 	}
 
 	public abstract java.sql.PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency) throws SQLException;
 
 	public java.sql.CallableStatement prepareCall(String sql) throws SQLException
 	{
-		return prepareCall(sql, java.sql.ResultSet.TYPE_SCROLL_INSENSITIVE, java.sql.ResultSet.CONCUR_READ_ONLY);
+		return prepareCall(sql, java.sql.ResultSet.TYPE_FORWARD_ONLY, java.sql.ResultSet.CONCUR_READ_ONLY);
 	}
 
 	public abstract java.sql.CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency) throws SQLException;

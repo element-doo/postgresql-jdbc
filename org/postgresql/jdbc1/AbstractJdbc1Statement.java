@@ -26,7 +26,7 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Vector;
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.45 2004/01/13 03:07:09 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java,v 1.46 2004/01/15 08:50:39 jurka Exp $
  * This class defines methods of the jdbc1 specification.  This class is
  * extended by org.postgresql.jdbc2.AbstractJdbc2Statement which adds the jdbc2
  * methods.  The real Statement class (for jdbc1) is org.postgresql.jdbc1.Jdbc1Statement
@@ -139,6 +139,11 @@ public abstract class AbstractJdbc1Statement implements BaseStatement
 
 	public int getFetchSize() {
 		return fetchSize;
+	}
+
+	// Overridden by JDBC2 code.
+	protected boolean wantsScrollableResultSet() {
+		return false;
 	}
 
 	protected void parseSqlStmt (String p_sql) throws SQLException
@@ -474,7 +479,7 @@ public abstract class AbstractJdbc1Statement implements BaseStatement
 
 		// We prefer cursor-based-fetch over server-side-prepare here.		
 		// Eventually a v3 implementation should let us do both at once.
-		if (fetchSize > 0 && !connection.getAutoCommit() && isSingleSelect())
+		if (fetchSize > 0 && !wantsScrollableResultSet() && !connection.getAutoCommit() && isSingleSelect())
 			return transformToCursorFetch();
 
 		if (isUseServerPrepare() && isSingleDML())
@@ -2020,12 +2025,6 @@ public abstract class AbstractJdbc1Statement implements BaseStatement
 	{
 		checkIndex (parameterIndex);
 		return callResult;
-	}
-
-	//This method is implemeted in jdbc2
-	public int getResultSetConcurrency() throws SQLException
-	{
-		return 0;
 	}
 
 	/*
