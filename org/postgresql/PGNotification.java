@@ -3,7 +3,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.7 2004/06/29 06:43:24 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/PGNotification.java,v 1.8 2004/08/04 23:59:16 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -31,7 +31,7 @@ public interface PGNotification
 	 * Currently, this feature is unimplemented and always returns
 	 * an empty String.
 	 *
-	 * @since 7.5
+	 * @since 8.0
 	 */
 	public String getParameter();
 

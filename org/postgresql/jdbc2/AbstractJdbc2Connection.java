@@ -15,7 +15,7 @@ import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLWarning;
 
 
-/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.14 2004/07/27 05:19:33 jurka Exp $
+/* $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.15 2004/08/04 23:59:29 jurka Exp $
  * This class defines methods of the jdbc2 specification.
  * The real Connection class (for jdbc2) is org.postgresql.jdbc2.Jdbc2Connection
  */
@@ -702,15 +702,15 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
 
 	protected String getIsolationLevelName(int level)
 	{
-		boolean pg75 = haveMinimumServerVersion("7.5");
+		boolean pg80 = haveMinimumServerVersion("8.0");
 
 		if (level == Connection.TRANSACTION_READ_COMMITTED) {
 			return "READ COMMITTED";
 		} else if (level == Connection.TRANSACTION_SERIALIZABLE) {
 			return "SERIALIZABLE";
-		} else if (pg75 && level == Connection.TRANSACTION_READ_UNCOMMITTED) {
+		} else if (pg80 && level == Connection.TRANSACTION_READ_UNCOMMITTED) {
 			return "READ UNCOMMITTED";
-		} else if (pg75 && level == Connection.TRANSACTION_REPEATABLE_READ) {
+		} else if (pg80 && level == Connection.TRANSACTION_REPEATABLE_READ) {
 			return "REPEATABLE READ";
 		}
 

@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * PS: Do you know how difficult it is to type on a train? ;-)
  *
- * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.25 2004/06/29 06:43:28 jurka Exp $
+ * $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.26 2004/08/04 23:59:38 jurka Exp $
  */
 
 public class DatabaseMetaDataTest extends TestCase
@@ -114,7 +114,7 @@ public class DatabaseMetaDataTest extends TestCase
 				assertTrue( fkColumnName.equals( "m" ) || fkColumnName.equals( "n" ) ) ;
 
 				String fkName = rs.getString( "FK_NAME" );
-				if (TestUtil.haveMinimumServerVersion(con1,"7.5")) {
+				if (TestUtil.haveMinimumServerVersion(con1,"8.0")) {
 					assertEquals("ww_m_fkey", fkName);
 				} else if (TestUtil.haveMinimumServerVersion(con1,"7.3")) {
 					assertTrue(fkName.startsWith("$1"));

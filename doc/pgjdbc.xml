@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- $Header: /cvsroot/jdbc/pgjdbc/doc/pgjdbc.xml,v 1.10 2004/07/16 06:14:17 jurka Exp $ -->
+<!-- $Header: /cvsroot/jdbc/pgjdbc/doc/pgjdbc.xml,v 1.11 2004/08/04 23:59:11 jurka Exp $ -->
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 
@@ -103,7 +103,7 @@ JAVACMD=$JAVA_HOME/bin/java
     <filename>postgresql.jar</filename> if you built from source, otherwise
     it will likely be named with the following convention:
     <filename>pg<replaceable>[server version]</replaceable>.<replaceable>[buildnumber]</replaceable>jdbc<replaceable>[JDBC version]</replaceable>.jar</filename>,
-    for example pg75.304.jdbc3.jar)
+    for example pg80.304.jdbc3.jar)
     needs to be included in the class path, either by putting it in the
     <envar>CLASSPATH</envar> environment variable, or by using flags on the
     <command>java</command> command line.
