@@ -7,7 +7,7 @@
  * Copyright (c) 2004, Open Cloud Limited.
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.9 2004/10/25 22:43:19 jurka Exp $
+ *	  $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.10 2004/10/25 22:48:03 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -358,7 +358,7 @@ public class QueryExecutorImpl implements QueryExecutor {
 								handleError(new SQLException(GT.tr("Expected command status BEGIN, got {0}.", status)));
 							sawBegin = true;
 						} else {
-							handleError(new SQLException(GT.tr("Unexpected command status: ", status)));
+							handleError(new SQLException(GT.tr("Unexpected command status: {0}.", status)));
 						}
 					}
 
