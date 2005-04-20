@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/ProtocolConnection.java,v 1.4 2005/01/11 08:25:43 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/ProtocolConnection.java,v 1.5 2005/04/20 00:10:58 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -82,7 +82,7 @@ public interface ProtocolConnection {
      * @return an array of notifications; if there are no notifications, an empty
      *   array is returned.
      */
-    PGNotification[] getNotifications();
+    PGNotification[] getNotifications() throws SQLException;
 
     /**
      * Retrieve and clear the chain of warnings accumulated on this connection.
