@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/Jdbc2TestSuite.java,v 1.21 2005/02/02 23:30:32 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/Jdbc2TestSuite.java,v 1.22 2005/04/29 20:41:43 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -81,6 +81,7 @@ public class Jdbc2TestSuite extends TestSuite
         suite.addTestSuite(CursorFetchTest.class);
         suite.addTestSuite(ServerCursorTest.class);
 
+        suite.addTestSuite(IntervalTest.class);
         suite.addTestSuite(GeometricTest.class);
 
         suite.addTestSuite(LoginTimeoutTest.class);
