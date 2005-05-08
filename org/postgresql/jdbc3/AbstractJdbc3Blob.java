@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Blob.java,v 1.7 2005/03/28 08:52:35 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3Blob.java,v 1.8 2005/05/08 23:18:24 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -69,7 +69,7 @@ public abstract class AbstractJdbc3Blob extends org.postgresql.jdbc2.AbstractJdb
     {
         assertPosition(pos);
         LargeObject lo = getLO();
-        lo.seek((int) pos);
+        lo.seek((int) (pos-1));
         lo.write(bytes, offset, len);
         return len;
     }
@@ -92,7 +92,7 @@ public abstract class AbstractJdbc3Blob extends org.postgresql.jdbc2.AbstractJdb
     {
         assertPosition(pos);
         LargeObject lo = getLO();
-        lo.seek((int) pos);
+        lo.seek((int) (pos-1));
         return lo.getOutputStream();
     }
 
