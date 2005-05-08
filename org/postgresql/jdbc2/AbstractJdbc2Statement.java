@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.74 2005/04/28 14:17:24 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.75 2005/05/08 23:50:56 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -2772,7 +2772,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
         else
         {
             Calendar _cal = (Calendar)cal.clone();
-            _cal = changeTime(d, cal, true);
+            _cal = changeTime(d, _cal, true);
             setDate(i, new java.sql.Date(_cal.getTime().getTime()));
         }
     }
