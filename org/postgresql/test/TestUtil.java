@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/TestUtil.java,v 1.18 2005/06/21 18:07:08 davec Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/TestUtil.java,v 1.19 2005/07/04 18:50:29 davec Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -297,6 +297,7 @@ public class TestUtil
         String jvm = java.lang.System.getProperty("java.version");
         return (jvm.compareTo(version) >= 0);
     }
+
     public static boolean isProtocolVersion( Connection con, int version )
     {
         if ( con instanceof AbstractJdbc2Connection )

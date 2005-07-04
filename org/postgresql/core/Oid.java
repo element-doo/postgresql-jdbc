@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/Oid.java,v 1.8 2005/04/10 21:54:16 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/Oid.java,v 1.9 2005/07/04 18:50:28 davec Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -35,5 +35,6 @@ public class Oid {
     public static final int MONEY = 790;
     public static final int NAME = 19;
     public static final int BIT = 1560;
+    public static final int VOID = 2278;
 
 }

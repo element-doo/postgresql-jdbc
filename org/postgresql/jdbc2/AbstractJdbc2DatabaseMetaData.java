@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java,v 1.22 2005/05/25 17:15:52 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java,v 1.23 2005/07/04 18:50:29 davec Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -1244,7 +1244,7 @@ public abstract class AbstractJdbc2DatabaseMetaData
      */
     public boolean supportsStoredProcedures() throws SQLException
     {
-        return false;
+        return true;
     }
 
     /*

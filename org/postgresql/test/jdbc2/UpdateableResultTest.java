@@ -3,7 +3,7 @@
 * Copyright (c) 2001-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java,v 1.20 2005/03/23 19:47:45 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java,v 1.21 2005/07/04 18:50:30 davec Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -27,6 +27,12 @@ public class UpdateableResultTest extends TestCase
     public UpdateableResultTest( String name )
     {
         super( name );
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+        }
+        catch( Exception ex ){}
+        
     }
 
     protected void setUp() throws Exception

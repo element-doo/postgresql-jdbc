@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/PreparedStatementTest.java,v 1.11 2005/05/30 13:07:29 davec Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/PreparedStatementTest.java,v 1.12 2005/07/04 18:50:29 davec Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -25,6 +25,13 @@ public class PreparedStatementTest extends TestCase
     public PreparedStatementTest(String name)
     {
         super(name);
+        
+        try 
+        { 
+            org.postgresql.Driver driver = new org.postgresql.Driver();
+        } 
+        catch (Exception ex) 
+        {;}
     }
 
     protected void setUp() throws SQLException
