@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/ParameterList.java,v 1.7 2005/07/04 18:50:28 davec Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/ParameterList.java,v 1.8 2005/07/08 17:38:28 davec Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -30,7 +30,7 @@ import java.io.InputStream;
 public interface ParameterList {
     
     
-    void registerOutParameter( int index, int sqlType );
+    void registerOutParameter( int index, int sqlType ) throws SQLException;
     /**
      * Get the number of parameters in this list. This value never changes
      * for a particular instance, and might be zero.
