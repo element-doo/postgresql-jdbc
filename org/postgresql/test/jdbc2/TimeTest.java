@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/TimeTest.java,v 1.16 2005/01/11 08:25:48 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/TimeTest.java,v 1.17 2005/08/01 06:54:15 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -81,7 +81,7 @@ public class TimeTest extends TestCase
         assertEquals(midnight, time);
 
         time = rs.getTime(1, cal);
-        assertEquals(midnight.getTime() , time.getTime() + localOffset);
+        assertEquals(midnight.getTime() , time.getTime() - localOffset);
 
         assertTrue(rs.next());
 
