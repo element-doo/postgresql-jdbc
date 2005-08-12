@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.80 2005/08/01 06:54:14 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.81 2005/08/12 17:43:28 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -607,6 +607,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
      */
     public SQLWarning getWarnings() throws SQLException
     {
+        checkClosed();
         return warnings;
     }
 
