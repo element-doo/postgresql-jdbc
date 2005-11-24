@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ServerPreparedStmtTest.java,v 1.14 2005/01/27 22:50:17 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ServerPreparedStmtTest.java,v 1.15 2005/11/24 06:18:29 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -256,7 +256,7 @@ public class ServerPreparedStmtTest extends TestCase
     }
 
     public void testTypeChange() throws Exception {
-        PreparedStatement pstmt = con.prepareStatement("SELECT ?");
+        PreparedStatement pstmt = con.prepareStatement("SELECT CAST (? AS TEXT)");
         ((PGStatement)pstmt).setUseServerPrepare(true);
         
         // Prepare with int parameter.
