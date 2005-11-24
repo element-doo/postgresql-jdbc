@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/PreparedStatementTest.java,v 1.14 2005/09/14 19:04:00 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/PreparedStatementTest.java,v 1.15 2005/11/24 02:31:43 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -34,7 +34,7 @@ public class PreparedStatementTest extends TestCase
         {;}
     }
 
-    protected void setUp() throws SQLException
+    protected void setUp() throws Exception
     {
         conn = TestUtil.openDB();
         TestUtil.createTable(conn, "streamtable", "bin bytea, str text");

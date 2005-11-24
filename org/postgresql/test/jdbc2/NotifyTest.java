@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/NotifyTest.java,v 1.6 2005/04/20 00:10:58 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/NotifyTest.java,v 1.7 2005/11/24 02:31:43 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -24,7 +24,7 @@ public class NotifyTest extends TestCase
         super(name);
     }
 
-    protected void setUp() throws SQLException
+    protected void setUp() throws Exception
     {
         conn = TestUtil.openDB();
     }
@@ -49,7 +49,7 @@ public class NotifyTest extends TestCase
         stmt.close();
     }
 
-    public void testAsyncNotify() throws SQLException
+    public void testAsyncNotify() throws Exception
     {
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("LISTEN mynotification");

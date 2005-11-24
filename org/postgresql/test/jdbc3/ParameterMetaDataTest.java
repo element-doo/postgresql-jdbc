@@ -3,7 +3,7 @@
 * Copyright (c) 2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/ParameterMetaDataTest.java,v 1.2 2005/04/10 21:54:17 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/ParameterMetaDataTest.java,v 1.3 2005/11/24 02:31:44 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -21,7 +21,7 @@ public class ParameterMetaDataTest extends TestCase {
         super(name);
     }
 
-    protected void setUp() throws SQLException {
+    protected void setUp() throws Exception {
         _conn = TestUtil.openDB();
         TestUtil.createTable(_conn, "parametertest", "a int4, b float8, c text, d point");
     }

@@ -3,7 +3,7 @@
 * Copyright (c) 2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/Jdbc3BlobTest.java,v 1.2 2005/05/08 23:18:25 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/Jdbc3BlobTest.java,v 1.3 2005/11/24 02:31:44 oliver Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -40,7 +40,7 @@ public class Jdbc3BlobTest extends TestCase
         super(name);
     }
 
-    protected void setUp() throws SQLException
+    protected void setUp() throws Exception
     {
         _conn = TestUtil.openDB();
         TestUtil.createTable(_conn, TABLE, "ID INT PRIMARY KEY, DATA OID");
