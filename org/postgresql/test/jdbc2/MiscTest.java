@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/MiscTest.java,v 1.19 2005/11/24 02:31:43 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/MiscTest.java,v 1.20 2005/12/02 03:05:10 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -51,6 +51,21 @@ public class MiscTest extends TestCase
         st.close();
 
         TestUtil.closeDB(con);
+    }
+
+    /**
+     * Ensure the cancel call does not return before it has completed.
+     * Previously it did which cancelled future queries.
+     */
+    public void testSingleThreadCancel() throws Exception
+    {
+        Connection con = TestUtil.openDB();
+        Statement stmt = con.createStatement();
+        for (int i=0; i<100; i++) {
+            ResultSet rs = stmt.executeQuery("SELECT 1");
+            rs.close();
+            stmt.cancel();
+        }
     }
 
     public void testError() throws Exception
