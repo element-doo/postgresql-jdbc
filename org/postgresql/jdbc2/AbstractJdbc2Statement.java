@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.85 2005/11/24 06:18:29 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java,v 1.86 2005/12/04 21:40:33 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -2974,6 +2974,9 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
 
     public Object getObjectImpl(int i, java.util.Map map) throws SQLException
     {
+        if (map == null || map.isEmpty()) {
+            return getObject(i);
+        }
         throw Driver.notImplemented(this.getClass(), "getObjectImpl(int,Map)");
     }
 
