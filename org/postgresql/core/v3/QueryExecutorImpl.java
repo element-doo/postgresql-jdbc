@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.26 2005/11/24 02:29:21 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.27 2006/01/30 20:12:06 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -865,8 +865,7 @@ public class QueryExecutorImpl implements QueryExecutor {
             }
         }
 
-        pgStream.SendChar(0);       // # of result format codes (0)
-        pgStream.SendChar(0);       //  (...)
+        pgStream.SendInteger2(0);   // # of result format codes (0)
 
         pendingBindQueue.add(portal);
 
