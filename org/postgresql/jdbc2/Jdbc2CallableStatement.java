@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2CallableStatement.java,v 1.12 2005/07/08 17:38:30 davec Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/Jdbc2CallableStatement.java,v 1.13 2006/01/30 20:09:05 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -24,7 +24,9 @@ class Jdbc2CallableStatement extends Jdbc2PreparedStatement implements CallableS
         super(connection, sql, true, rsType, rsConcurrency);
         if ( !connection.haveMinimumServerVersion("8.1") || connection.getProtocolVersion() == 2)
         {
-            adjustIndex = true;
+            // if there is no out parameter before the function determined by modifyJdbcCall then do not
+            // set adjustIndex to true
+            adjustIndex = outParmBeforeFunc;
         }
     }
     public void registerOutParameter( int parameterIndex, int sqlType ) throws SQLException
