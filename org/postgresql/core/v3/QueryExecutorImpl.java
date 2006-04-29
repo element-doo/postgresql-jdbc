@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.28 2006/04/26 20:06:50 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/QueryExecutorImpl.java,v 1.29 2006/04/29 00:06:52 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -1285,7 +1285,16 @@ public class QueryExecutorImpl implements QueryExecutor {
                 break;
 
             case 'D':  // Data Transfer (ongoing Execute response)
-                Object tuple = pgStream.ReceiveTupleV3();
+                Object tuple = null;
+                try {
+                    tuple = pgStream.ReceiveTupleV3();
+                } catch(OutOfMemoryError oome) {
+                    if (!noResults) {
+                        handler.handleError(new PSQLException(GT.tr("Ran out of memory retrieving query results."), PSQLState.OUT_OF_MEMORY, oome));
+                    }
+                }
+
+
                 if (!noResults)
                 {
                     if (tuples == null)
