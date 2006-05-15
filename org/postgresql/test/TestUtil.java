@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/TestUtil.java,v 1.20 2005/11/24 02:29:22 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/TestUtil.java,v 1.21 2006/05/15 09:35:57 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -24,12 +24,18 @@ public class TestUtil
      */
     public static String getURL()
     {
-        
+        String protocolVersion = "";
+        if (getProtocolVersion() != 0) {
+            protocolVersion = "&protocolVersion=" + getProtocolVersion();
+        }
+
         return "jdbc:postgresql://"
-        			+ getServer() + ":" 
-        			+ getPort() + "/" 
-        			+ getDatabase() 
-        			+ "?prepareThreshold=" + getPrepareThreshold() + "&loglevel=" + getLogLevel();
+                                + getServer() + ":" 
+                                + getPort() + "/" 
+                                + getDatabase() 
+                                + "?prepareThreshold=" + getPrepareThreshold()
+                                + "&loglevel=" + getLogLevel()
+                                + protocolVersion;
     }
 
     /*
@@ -54,6 +60,11 @@ public class TestUtil
     public static int getPrepareThreshold()
     {
         return Integer.parseInt(System.getProperty("preparethreshold"));
+    }
+
+    public static int getProtocolVersion()
+    {
+        return Integer.parseInt(System.getProperty("protocolVersion"));
     }
 
     /*
