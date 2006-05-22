@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleParameterList.java,v 1.11 2005/11/24 06:18:28 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleParameterList.java,v 1.12 2006/05/22 09:52:37 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -70,6 +70,19 @@ class SimpleParameterList implements V3ParameterList {
     public int getParameterCount()
     {
         return paramValues.length;
+    }
+    public int getOutParameterCount()
+    {
+        int count=0;
+        for( int i=paramTypes.length; --i >= 0;)
+        {
+            if ((direction[i] & OUT) == OUT )
+            {
+                count++;
+            }
+        }
+        return count;
+        
     }
     public int getInParameterCount() 
     {

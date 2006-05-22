@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.7 2005/07/04 18:50:28 davec Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.8 2006/05/22 09:52:36 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -40,6 +40,10 @@ class SimpleParameterList implements ParameterList {
     public int getParameterCount()
     {
         return paramValues.length;
+    }
+    public int getOutParameterCount()
+    {
+        return 1;
     }
     public int[] getTypeOIDs() {
         return null;
