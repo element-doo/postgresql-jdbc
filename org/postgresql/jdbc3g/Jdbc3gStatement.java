@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3g/Jdbc3gStatement.java,v 1.4 2005/01/11 08:25:47 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3g/Jdbc3gStatement.java,v 1.5 2006/06/08 10:34:51 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -40,4 +40,10 @@ class Jdbc3gStatement extends org.postgresql.jdbc3.AbstractJdbc3Statement implem
         newResult.setFetchDirection(getFetchDirection());
         return newResult;
     }
+
+    public ParameterMetaData createParameterMetaData(BaseConnection conn, int oids[]) throws SQLException
+    {
+        return new Jdbc3gParameterMetaData(conn, oids);
+    }
+
 }
