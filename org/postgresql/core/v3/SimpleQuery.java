@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleQuery.java,v 1.10 2006/04/26 20:06:53 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/SimpleQuery.java,v 1.11 2006/08/06 18:02:45 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -91,7 +91,7 @@ class SimpleQuery implements V3Query {
 
         // Check for compatible types.
         for (int i = 0; i < paramTypes.length; ++i)
-            if (paramTypes[i] != preparedTypes[i])
+            if (paramTypes[i] != 0 && paramTypes[i] != preparedTypes[i])
                 return false;
 
         return true;
