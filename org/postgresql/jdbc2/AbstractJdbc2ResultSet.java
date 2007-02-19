@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.89 2007/02/18 23:33:58 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java,v 1.90 2007/02/19 06:00:24 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -2163,7 +2163,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
                 if ( fields[columnIndex - 1].getOID() == Oid.OID)
                 {
                     LargeObjectManager lom = connection.getLargeObjectAPI();
-                    LargeObject lob = lom.open(getInt(columnIndex));
+                    LargeObject lob = lom.open(getLong(columnIndex));
                     byte buf[] = lob.read(lob.size());
                     lob.close();
                     return trimBytes(columnIndex, buf);
@@ -2279,7 +2279,7 @@ public abstract class AbstractJdbc2ResultSet implements BaseResultSet, org.postg
             if ( fields[columnIndex - 1].getOID() == Oid.OID)
             {
                 LargeObjectManager lom = connection.getLargeObjectAPI();
-                LargeObject lob = lom.open(getInt(columnIndex));
+                LargeObject lob = lom.open(getLong(columnIndex));
                 return lob.getInputStream();
             }
         }
