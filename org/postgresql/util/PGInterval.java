@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/util/PGInterval.java,v 1.10 2005/11/01 21:29:31 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/util/PGInterval.java,v 1.11 2007/04/11 06:54:38 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -32,7 +32,7 @@ public class PGInterval extends PGobject implements Serializable, Cloneable
 
     private final static DecimalFormat secondsFormat;
     static {
-        secondsFormat = new DecimalFormat("#.00####");
+        secondsFormat = new DecimalFormat("0.00####");
         DecimalFormatSymbols dfs = secondsFormat.getDecimalFormatSymbols();
         dfs.setDecimalSeparator('.');
         secondsFormat.setDecimalFormatSymbols(dfs);
@@ -40,7 +40,7 @@ public class PGInterval extends PGobject implements Serializable, Cloneable
 
 
     /**
-     * reuired by the driver
+     * required by the driver
      */
     public PGInterval()
     {
