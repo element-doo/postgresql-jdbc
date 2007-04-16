@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.41 2007/03/29 04:54:06 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.42 2007/04/16 18:31:38 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -151,7 +151,7 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
         }
 
         // Initialize timestamp stuff
-        timestampUtils = new TimestampUtils(haveMinimumServerVersion("7.4"));
+        timestampUtils = new TimestampUtils(haveMinimumServerVersion("7.4"), haveMinimumServerVersion("8.2"));
 
         // Initialize common queries.
         commitQuery = getQueryExecutor().createSimpleQuery("COMMIT");
