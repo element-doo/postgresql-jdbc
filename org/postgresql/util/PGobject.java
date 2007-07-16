@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/util/PGobject.java,v 1.9 2005/01/11 08:25:49 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/util/PGobject.java,v 1.10 2007/07/16 15:02:53 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -86,12 +86,9 @@ public class PGobject implements Serializable, Cloneable
     /**
      * This must be overidden to allow the object to be cloned
      */
-    public Object clone()
+    public Object clone() throws CloneNotSupportedException
     {
-        PGobject obj = new PGobject();
-        obj.type = type;
-        obj.value = value;
-        return obj;
+        return super.clone();
     }
 
     /**

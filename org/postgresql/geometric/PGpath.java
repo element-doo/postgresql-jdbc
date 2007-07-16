@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpath.java,v 1.13 2005/01/11 08:25:45 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/geometric/PGpath.java,v 1.14 2007/07/16 15:02:53 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -124,12 +124,16 @@ public class PGpath extends PGobject implements Serializable, Cloneable
         return hash;
     }
 
-    public Object clone()
+    public Object clone() throws CloneNotSupportedException
     {
-        PGpoint ary[] = new PGpoint[points.length];
-        for (int i = 0;i < points.length;i++)
-            ary[i] = (PGpoint)points[i].clone();
-        return new PGpath(ary, open);
+        PGpath newPGpath = (PGpath) super.clone();
+        if( newPGpath.points != null )
+        {
+            newPGpath.points = (PGpoint[]) newPGpath.points.clone();
+            for( int i = 0; i < newPGpath.points.length; ++i )
+                newPGpath.points[i] = (PGpoint) newPGpath.points[i].clone();
+        }        
+        return newPGpath;
     }
 
     /**

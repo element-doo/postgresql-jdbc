@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/util/PGmoney.java,v 1.11 2005/01/11 08:25:49 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/util/PGmoney.java,v 1.12 2007/07/16 15:02:53 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -84,14 +84,6 @@ public class PGmoney extends PGobject implements Serializable, Cloneable
             return val == p.val;
         }
         return false;
-    }
-
-    /*
-     * This must be overidden to allow the object to be cloned
-     */
-    public Object clone()
-    {
-        return new PGmoney(val);
     }
 
     public String getValue()
