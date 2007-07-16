@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/ds/common/BaseDataSource.java,v 1.7 2005/02/02 23:30:31 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/ds/common/BaseDataSource.java,v 1.8 2007/07/16 05:16:45 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -40,7 +40,6 @@ public abstract class BaseDataSource implements Referenceable
 
     // Needed to implement the DataSource/ConnectionPoolDataSource interfaces
     private transient PrintWriter logger;
-    // Don't track loginTimeout, since we'd just ignore it anyway
 
     // Standard properties, defined in the JDBC 2.0 Optional Package spec
     private String serverName = "localhost";
