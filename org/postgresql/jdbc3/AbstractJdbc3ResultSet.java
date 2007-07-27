@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3ResultSet.java,v 1.14 2007/04/17 05:23:06 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3/AbstractJdbc3ResultSet.java,v 1.15 2007/07/27 10:15:34 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -13,7 +13,6 @@ package org.postgresql.jdbc3;
 import java.sql.*;
 import java.util.Vector;
 import org.postgresql.core.*;
-import org.postgresql.util.GT;
 
 
 /**
