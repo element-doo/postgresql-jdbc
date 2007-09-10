@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Array.java,v 1.18 2005/12/04 21:40:33 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Array.java,v 1.19 2007/09/10 08:34:31 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -40,7 +40,7 @@ import java.util.GregorianCalendar;
  */
 
 
-public class AbstractJdbc2Array
+public abstract class AbstractJdbc2Array
 {
     private BaseConnection conn = null;
     private Field field = null;

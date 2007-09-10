@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Clob.java,v 1.12 2007/03/29 06:13:53 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Clob.java,v 1.13 2007/09/10 08:34:59 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -17,7 +17,7 @@ import java.io.Reader;
 import java.sql.Clob;
 import java.sql.SQLException;
 
-public class AbstractJdbc2Clob extends AbstractJdbc2BlobClob
+public abstract class AbstractJdbc2Clob extends AbstractJdbc2BlobClob
 {
 
     public AbstractJdbc2Clob(BaseConnection conn, long oid) throws SQLException
