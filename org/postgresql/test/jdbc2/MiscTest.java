@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/MiscTest.java,v 1.20 2005/12/02 03:05:10 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/MiscTest.java,v 1.21 2007/10/07 23:32:46 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -66,6 +66,7 @@ public class MiscTest extends TestCase
             rs.close();
             stmt.cancel();
         }
+        TestUtil.closeDB(con);
     }
 
     public void testError() throws Exception
@@ -130,5 +131,6 @@ public class MiscTest extends TestCase
         con.commit();
         TestUtil.dropTable(con, "test_lock");
         con.close();
+        con2.close();
     }
 }
