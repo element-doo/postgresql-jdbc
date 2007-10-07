@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ServerPreparedStmtTest.java,v 1.15 2005/11/24 06:18:29 oliver Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/ServerPreparedStmtTest.java,v 1.16 2007/10/07 20:58:48 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -178,7 +178,7 @@ public class ServerPreparedStmtTest extends TestCase
         //Test that basic functionality works
         //bind different datatypes
         pstmt.setInt(1, 2);
-        pstmt.setString(2, "2");
+        pstmt.setLong(2, 2);
         ResultSet rs = pstmt.executeQuery();
         assertTrue(rs.next());
         assertEquals(2, rs.getInt(1));
