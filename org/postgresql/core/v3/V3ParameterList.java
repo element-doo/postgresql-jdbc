@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/V3ParameterList.java,v 1.5 2005/07/04 18:50:29 davec Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/V3ParameterList.java,v 1.6 2007/10/15 08:06:24 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -27,6 +27,12 @@ interface V3ParameterList extends ParameterList {
      * @throws SQLException if not all parameters are set.
      */
     void checkAllParametersSet() throws SQLException;
+
+    /**
+     * Convert any function output parameters to the correct type (void)
+     * and set an ignorable value for it.
+     */
+    void convertFunctionOutParameters();
 
     /**
      * Return a list of the SimpleParameterList objects that
