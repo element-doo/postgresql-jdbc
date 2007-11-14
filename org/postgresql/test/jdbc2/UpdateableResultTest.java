@@ -3,7 +3,7 @@
 * Copyright (c) 2001-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java,v 1.26 2007/11/14 02:47:03 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java,v 1.27 2007/11/14 03:17:50 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -256,21 +256,21 @@ public class UpdateableResultTest extends TestCase
         assertEquals(2, rs.getInt(1));
         assertEquals(string, rs.getString(2));
         assertEquals(string, rs.getString(3));
-        assertEquals(bytes, rs.getBytes(4));
+        assertTrue(Arrays.equals(bytes, rs.getBytes(4)));
 
         rs.refreshRow();
 
         assertEquals(2, rs.getInt(1));
         assertEquals(string, rs.getString(2));
         assertEquals(string, rs.getString(3));
-        assertEquals(bytes, rs.getBytes(4));
+        assertTrue(Arrays.equals(bytes, rs.getBytes(4)));
 
         rs.next();
 
         assertEquals(3, rs.getInt(1));
         assertEquals(string, rs.getString(2));
         assertEquals(string, rs.getString(3));
-        assertEquals(bytes, rs.getBytes(4));
+        assertTrue(Arrays.equals(bytes, rs.getBytes(4)));
         
         rs.close();
         stmt.close();
