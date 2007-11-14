@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/ds/jdbc23/AbstractJdbc23PooledConnection.java,v 1.2 2007/09/10 08:38:15 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/ds/jdbc23/AbstractJdbc23PooledConnection.java,v 1.3 2007/11/14 22:03:36 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -137,7 +137,13 @@ public abstract class AbstractJdbc23PooledConnection
                 }
                 con.clearWarnings();
             }
-            con.setAutoCommit(autoCommit);
+            /*
+             * In XA-mode, autocommit is handled in PGXAConnection,
+             * because it depends on whether an XA-transaction is open
+             * or not
+             */
+            if (!isXA)
+                con.setAutoCommit(autoCommit);
         }
         catch (SQLException sqlException)
         {
