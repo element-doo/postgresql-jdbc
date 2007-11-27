@@ -3,7 +3,7 @@
 * Copyright (c) 2001-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java,v 1.27 2007/11/14 03:17:50 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java,v 1.28 2007/11/27 19:33:05 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -428,7 +428,18 @@ public class UpdateableResultTest extends TestCase
         rs.moveToInsertRow();
         rs.close();
         st.close();
-    }        
+    }
+
+    public void testUpdateSelectOnly() throws Exception
+    {
+        Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                           ResultSet.CONCUR_UPDATABLE);
+
+        ResultSet rs = st.executeQuery( "select * from only second");
+        assertTrue(rs.next());
+        rs.updateInt(1, 2);
+        rs.updateRow();
+    }
 
     public void testUpdateReadOnlyResultSet() throws Exception
     {
