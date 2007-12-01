@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.44 2007/12/01 08:28:58 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.45 2007/12/01 09:17:28 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -393,13 +393,11 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
     {
         if (typemap != null)
         {
-            SQLData d = (SQLData) typemap.get(type);
-            if (d != null)
+            Class c = (Class) typemap.get(type);
+            if (c != null)
             {
                 // Handle the type (requires SQLInput & SQLOutput classes to be implemented)
-                if (logger.logDebug())
-                    logger.debug("getObject(String,String) with custom typemap");
-                throw org.postgresql.Driver.notImplemented(this.getClass(), "getObject(String,String)");
+                throw new PSQLException(GT.tr("Custom type maps are not supported."), PSQLState.NOT_IMPLEMENTED);
             }
         }
 
