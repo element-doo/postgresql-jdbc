@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Array.java,v 1.20 2007/12/01 08:28:58 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Array.java,v 1.21 2007/12/01 11:07:12 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -548,8 +548,7 @@ ret = oa = (dims > 1 ? (Object[]) java.lang.reflect.Array.newInstance(useObjects
     public String getBaseTypeName() throws SQLException
     {
         buildArrayList();
-        if (arrayList.dimensionsCount > 1) return connection.getPGType(field.getOID());
-        else return connection.getPGType(connection.getPGArrayElement(field.getOID()));
+        return connection.getPGType(connection.getPGArrayElement(field.getOID()));
     }
 
     public java.sql.ResultSet getResultSet() throws SQLException
