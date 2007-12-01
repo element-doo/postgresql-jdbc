@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.43 2007/07/27 10:15:32 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.44 2007/12/01 08:28:58 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -989,6 +989,11 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
         return _typeCache.getPGType(oid);
     }
 
+    public int getPGArrayElement (int oid) throws SQLException
+    {
+        return _typeCache.getPGArrayElement(oid);
+    }
+
     // This is a cache of the DatabaseMetaData instance for this connection
     protected java.sql.DatabaseMetaData metadata;
 
@@ -1075,7 +1080,7 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
     }
 
 
-    public int getSQLType(String pgTypeName)
+    public int getSQLType(String pgTypeName) throws SQLException
     {
         return _typeCache.getSQLType(pgTypeName);
     }

@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.19 2006/12/01 08:53:45 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/BaseConnection.java,v 1.20 2007/12/01 08:28:58 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -92,6 +92,15 @@ public interface BaseConnection extends PGConnection, Connection
      * @throws SQLException if something goes wrong
      */
     public int getPGType(String pgTypeName) throws SQLException;
+
+    /**
+     * Look up the oid of base type for a given postgresql array type oid.
+     *
+     * @param oid the array type's OID
+     * @return oid the base type's OID, or 0 if unknown
+     * @throws SQLException if something goes wrong
+     */
+    public int getPGArrayElement(int oid) throws SQLException;
 
     /**
      * Look up the SQL typecode for a given type oid.
