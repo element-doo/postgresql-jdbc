@@ -3,7 +3,7 @@
 * Copyright (c) 2007, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc4/Jdbc4TestSuite.java,v 1.3 2007/10/07 19:40:02 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc4/Jdbc4TestSuite.java,v 1.4 2007/12/01 12:50:45 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -27,6 +27,7 @@ public class Jdbc4TestSuite extends TestSuite
         
         suite.addTestSuite(LOBTest.class);
         suite.addTestSuite(DatabaseMetaDataTest.class);
+        suite.addTestSuite(ArrayTest.class);
         return suite;
     }
 }
