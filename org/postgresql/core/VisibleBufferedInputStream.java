@@ -3,7 +3,7 @@
  * Copyright (c) 2006, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *   $PostgreSQL: pgjdbc/org/postgresql/core/VisibleBufferedInputStream.java,v 1.1 2006/10/30 18:30:16 jurka Exp $
+ *   $PostgreSQL: pgjdbc/org/postgresql/core/VisibleBufferedInputStream.java,v 1.2 2007/12/15 15:32:37 jurka Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -230,7 +230,7 @@ public class VisibleBufferedInputStream extends InputStream {
         n -= avail;
         index = 0;
         endIndex = 0;
-        return wrapped.skip(n);
+        return avail + wrapped.skip(n);
     }
 
     /**
