@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2005, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/Jdbc3TestSuite.java,v 1.16 2006/05/15 09:35:57 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc3/Jdbc3TestSuite.java,v 1.17 2008/01/08 06:47:57 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -46,6 +46,7 @@ public class Jdbc3TestSuite extends TestSuite
         suite.addTestSuite(ResultSetTest.class);
         suite.addTestSuite(ParameterMetaDataTest.class);
         suite.addTestSuite(Jdbc3BlobTest.class);
+        suite.addTestSuite(DatabaseMetaDataTest.class);
         return suite;
     }
 }
