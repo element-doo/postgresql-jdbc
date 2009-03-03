@@ -3,7 +3,7 @@
 * Copyright (c) 2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/TypeInfo.java,v 1.3 2008/10/08 18:24:05 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/TypeInfo.java,v 1.4 2009/03/03 05:33:04 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -69,6 +69,14 @@ public interface TypeInfo
      * @return the array type's OID, or 0 if unknown
      */
     public int getPGArrayType(String elementTypeName) throws SQLException;
+
+    /**
+     * Determine the delimiter for the elements of the given array type oid.
+     *
+     * @param oid the array type's OID
+     * @return the base type's array type delimiter
+     */
+    public char getArrayDelimiter(int oid) throws SQLException;
 
     public Iterator getPGTypeNamesWithSQLTypes();
 
