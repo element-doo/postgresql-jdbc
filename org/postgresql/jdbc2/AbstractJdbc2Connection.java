@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.53 2009/11/18 11:19:31 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java,v 1.54 2009/11/19 00:51:26 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -711,8 +711,8 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
 
     protected void checkClosed() throws SQLException {
         if (isClosed())
-            throw new PSQLException(GT.tr("This statement has been closed."),
-                                    PSQLState.OBJECT_NOT_IN_STATE);
+            throw new PSQLException(GT.tr("This connection has been closed."),
+                                    PSQLState.CONNECTION_DOES_NOT_EXIST);
     }
  
 
