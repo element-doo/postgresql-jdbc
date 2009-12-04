@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.44 2009/07/01 05:00:40 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.45 2009/12/04 19:53:20 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -220,5 +220,5 @@ public interface QueryExecutor {
      * Implemented for protocol version 3 only.
      * @throws SQLException when initializing the given query fails
      */
-    CopyOperation startCopy(String sql) throws SQLException;
+    CopyOperation startCopy(String sql, boolean suppressBegin) throws SQLException;
 }
