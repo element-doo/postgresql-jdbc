@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java,v 1.51 2009/03/12 03:59:50 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java,v 1.52 2009/12/04 19:47:54 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -2771,6 +2771,9 @@ public abstract class AbstractJdbc2DatabaseMetaData
             case 'd':
                 sqlpriv = "DELETE";
                 break;
+            case 'D':
+                sqlpriv = "TRUNCATE";
+                break;
             case 'R':
                 sqlpriv = "RULE";
                 break;
@@ -2780,7 +2783,7 @@ public abstract class AbstractJdbc2DatabaseMetaData
             case 't':
                 sqlpriv = "TRIGGER";
                 break;
-                // the folloowing can't be granted to a table, but
+                // the following can't be granted to a table, but
                 // we'll keep them for completeness.
             case 'X':
                 sqlpriv = "EXECUTE";
