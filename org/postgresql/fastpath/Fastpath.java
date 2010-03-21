@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/fastpath/Fastpath.java,v 1.35 2008/01/08 06:56:28 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/fastpath/Fastpath.java,v 1.36 2010/03/21 07:13:37 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -22,7 +22,7 @@ import org.postgresql.util.GT;
 /**
  * This class implements the Fastpath api.
  *
- * <p>This is a means of executing functions imbeded in the org.postgresql
+ * <p>This is a means of executing functions embedded in the
  *  backend from within a java application.
  *
  * <p>It is based around the file src/interfaces/libpq/fe-exec.c
