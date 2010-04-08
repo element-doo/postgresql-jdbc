@@ -3,7 +3,7 @@
 * Copyright (c) 2009, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/copy/CopyManager.java,v 1.2 2009/12/04 19:53:20 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/copy/CopyManager.java,v 1.3 2010/04/08 16:18:04 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -141,7 +141,7 @@ public class CopyManager {
         CopyIn cp = copyIn(sql);
         try {
             while ( (len = from.read(cbuf)) > 0) {
-                byte[] buf = encoding.encode(new String(cbuf));
+                byte[] buf = encoding.encode(new String(cbuf, 0, len));
                 cp.writeToCopy(buf, 0, buf.length);
             }
             return cp.endCopy();
