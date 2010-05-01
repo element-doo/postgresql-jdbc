@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/ds/common/BaseDataSource.java,v 1.18 2010/05/01 15:43:42 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/ds/common/BaseDataSource.java,v 1.19 2010/05/01 20:35:39 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -469,6 +469,7 @@ public abstract class BaseDataSource implements Referenceable
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
         source.writeBaseObject(oos);
+        oos.close();
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bais);
         readBaseObject(ois);
