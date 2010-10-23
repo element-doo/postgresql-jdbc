@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/Field.java,v 1.13 2009/03/12 03:59:50 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/Field.java,v 1.14 2010/10/23 07:30:47 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -159,7 +159,7 @@ public class Field
         PreparedStatement ps = null;
         try
         {
-            ps = con.prepareStatement("SELECT attnotnull FROM pg_catalog.pg_attribute WHERE attrelid = ? AND attnum = ?;");
+            ps = con.prepareStatement("SELECT a.attnotnull OR (t.typtype = 'd' AND t.typnotnull) FROM pg_catalog.pg_attribute a JOIN pg_catalog.pg_type t ON (a.atttypid = t.oid) WHERE a.attrelid = ? AND a.attnum = ?;");
             ps.setInt(1, tableOid);
             ps.setInt(2, positionInTable);
             res = ps.executeQuery();
