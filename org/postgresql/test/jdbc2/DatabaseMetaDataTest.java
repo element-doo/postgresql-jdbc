@@ -3,7 +3,7 @@
 * Copyright (c) 2004-2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.49 2010/10/23 07:30:47 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java,v 1.50 2010/12/22 16:53:46 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -714,9 +714,6 @@ public class DatabaseMetaDataTest extends TestCase
 
     public void testSchemas() throws Exception
     {
-        if (!TestUtil.haveMinimumServerVersion(con, "7.3"))
-            return ;
-
         DatabaseMetaData dbmd = con.getMetaData();
         assertNotNull(dbmd);
 
