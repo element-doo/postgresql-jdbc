@@ -1,9 +1,9 @@
 /*-------------------------------------------------------------------------
 *
-* Copyright (c) 2011, PostgreSQL Global Development Group
+* Copyright (c) 2008-2011, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3g/AbstractJdbc3gStatement.java,v 1.3 2011/08/02 13:50:28 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3g/AbstractJdbc3gStatement.java,v 1.4 2011/08/02 14:41:30 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
