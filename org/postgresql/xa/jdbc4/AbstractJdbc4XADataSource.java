@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------------
+*
+* Copyright (c) 2009-2011, PostgreSQL Global Development Group
+*
+* IDENTIFICATION
+*   $PostgreSQL: pgjdbc/org/postgresql/xa/jdbc4/AbstractJdbc4XADataSource.java,v 1.2 2011/08/02 20:26:01 davecramer Exp $
+*
+*-------------------------------------------------------------------------
+*/
 package org.postgresql.xa.jdbc4;
 
 import java.sql.SQLFeatureNotSupportedException;

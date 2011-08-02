@@ -1,9 +1,9 @@
 /*-------------------------------------------------------------------------
 *
-* Copyright (c) 2009, PostgreSQL Global Development Group
+* (c) 2008-2011, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/CopyOperationImpl.java,v 1.2 2010/03/21 07:13:37 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/CopyOperationImpl.java,v 1.3 2011/08/02 20:26:00 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
