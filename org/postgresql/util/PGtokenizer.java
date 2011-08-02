@@ -1,9 +1,9 @@
 /*-------------------------------------------------------------------------
 *
-* Copyright (c) 2003-2008, PostgreSQL Global Development Group
+* Copyright (c) 2003-2011, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/util/PGtokenizer.java,v 1.12 2008/01/08 06:56:31 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/util/PGtokenizer.java,v 1.13 2011/08/02 13:50:29 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
