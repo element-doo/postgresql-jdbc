@@ -1,10 +1,10 @@
 /*-------------------------------------------------------------------------
 *
-* Copyright (c) 2003-2010, PostgreSQL Global Development Group
+* Copyright (c) 2003-2011, PostgreSQL Global Development Group
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/SetupQueryRunner.java,v 1.1 2010/12/25 05:43:00 jurka Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/SetupQueryRunner.java,v 1.2 2011/08/19 21:50:39 jurka Exp $
 *
 *-------------------------------------------------------------------------
 */
