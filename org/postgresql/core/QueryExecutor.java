@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.47 2011/08/02 13:40:12 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/QueryExecutor.java,v 1.48 2011/09/22 12:53:23 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -96,6 +96,11 @@ public interface QueryExecutor {
      * from a statement.
      */
     static int QUERY_DISALLOW_BATCHING = 128;
+
+    /**
+     * Flag for query execution to avoid using binary transfer.
+     */
+    static int QUERY_NO_BINARY_TRANSFER = 256;
 
     /**
      * Execute a Query, passing results to a provided ResultHandler.

@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/CompositeParameterList.java,v 1.12 2011/08/02 13:40:12 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/CompositeParameterList.java,v 1.13 2011/09/22 12:53:24 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -82,6 +82,11 @@ class CompositeParameterList implements V3ParameterList {
     public void setStringParameter(int index, String value, int oid) throws SQLException {
         int sub = findSubParam(index);
         subparams[sub].setStringParameter(index - offsets[sub], value, oid);
+    }
+
+    public void setBinaryParameter(int index, byte[] value, int oid) throws SQLException {
+        int sub = findSubParam(index);
+        subparams[sub].setBinaryParameter(index - offsets[sub], value, oid);
     }
 
     public void setBytea(int index, byte[] data, int offset, int length) throws SQLException {

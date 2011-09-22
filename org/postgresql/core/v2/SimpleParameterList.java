@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.12 2011/08/02 13:40:12 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v2/SimpleParameterList.java,v 1.13 2011/09/22 12:53:24 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -166,6 +166,10 @@ class SimpleParameterList implements ParameterList {
 
     public void clear() {
         Arrays.fill(paramValues, null);
+    }
+
+    public void setBinaryParameter(int index, byte[] value, int oid) {
+        throw new UnsupportedOperationException();
     }
 
     private final Object[] paramValues;

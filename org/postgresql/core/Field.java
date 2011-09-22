@@ -3,7 +3,7 @@
 * Copyright (c) 2003-2011, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/Field.java,v 1.16 2011/08/02 13:40:12 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/Field.java,v 1.17 2011/09/22 12:53:23 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -197,4 +197,9 @@ public class Field
         return schemaName;
     }
 
+    public String toString() {
+        return "Field("+ (columnName != null ? columnName : "") + "," +
+                Oid.toString(oid) + "," + length + "," +
+                (format == TEXT_FORMAT ? 'T' : 'B') + ")";
+    }
 }
