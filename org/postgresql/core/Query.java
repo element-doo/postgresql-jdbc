@@ -4,7 +4,7 @@
 * Copyright (c) 2004, Open Cloud Limited.
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/core/Query.java,v 1.6 2011/08/02 13:40:12 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/core/Query.java,v 1.7 2011/09/30 10:08:16 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -54,4 +54,6 @@ public interface Query {
      * A closed Query should not be executed.
      */
     void close();
+
+    boolean isStatementDescribed();
 }
