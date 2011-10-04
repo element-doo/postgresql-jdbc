@@ -1,9 +1,9 @@
 /*-------------------------------------------------------------------------
 *
-* Copyright (c) 2004-2011, PostgreSQL Global Development Group
+* Copyright (c) 2004-2008, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3ResultSet.java,v 1.18 2011/08/02 13:49:01 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/jdbc3/Jdbc3ResultSet.java,v 1.19 2011/10/04 08:33:43 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
@@ -56,6 +56,9 @@ public class Jdbc3ResultSet extends org.postgresql.jdbc3.AbstractJdbc3ResultSet 
     {
         checkResultSet(i);
         int oid = fields[i - 1].getOID();
+        if (isBinary(i)) {
+            return new Jdbc3Array(connection, oid, this_row[i - 1]);
+        }
         String value = getFixedString(i);
         return new Jdbc3Array(connection, oid, value);
     }
